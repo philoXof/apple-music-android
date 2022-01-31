@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/app_nav"
+    app:startDestination="@id/albumRankingList">
+
+    <fragment
+        android:id="@+id/albumRankingList"
+        android:name="com.example.kelyan_bervin.apple_music_android.AlbumRankingList"
+        android:label="AlbumRankingList" >
+        <action
+            android:id="@+id/action_albumRankingList_to_albumDetails"
+            app:destination="@id/albumDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/albumDetails"
+        android:name="com.example.kelyan_bervin.apple_music_android.AlbumDetails"
+        android:label="AlbumDetails" >
+        <argument
+            android:name="album"
+            app:argType="string" />
+    </fragment>
+</navigation>
