@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Xof/Documents/GitHub/apple-music-android/app/src/main/res/layout/activity_main.xml" value="0.3109375" />
+        <entry key="..\:/Users/Xof/Documents/GitHub/apple-music-android/app/src/main/res/layout/album_details.xml" value="0.3109375" />
+        <entry key="..\:/Users/Xof/Documents/GitHub/apple-music-android/app/src/main/res/layout/album_ranking_item_cell.xml" value="0.3109375" />
+        <entry key="..\:/Users/Xof/Documents/GitHub/apple-music-android/app/src/main/res/layout/album_ranking_list.xml" value="0.3109375" />
+        <entry key="..\:/Users/Xof/Documents/GitHub/apple-music-android/app/src/main/res/layout/artiste_details.xml" value="0.3109375" />
         <entry key="..\:/Users/kekeb/Documents/ESGI/4eme_annee/Android/apple-music-android/app/src/main/res/drawable/ic_accueil_classements.xml" value="0.37864583333333335" />
         <entry key="..\:/Users/kekeb/Documents/ESGI/4eme_annee/Android/apple-music-android/app/src/main/res/drawable/ic_etoile.xml" value="0.37864583333333335" />
         <entry key="..\:/Users/kekeb/Documents/ESGI/4eme_annee/Android/apple-music-android/app/src/main/res/drawable/ic_fleche_droite.xml" value="0.37864583333333335" />
