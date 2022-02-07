@@ -8,7 +8,12 @@ import android.widget.TextView
 import androidx.core.app.Person.fromBundle
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import com.example.kelyan_bervin.apple_music_android.API.NetworkManager
 import kotlinx.android.synthetic.main.album_details.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class AlbumDetails() : Fragment() {
 
@@ -38,10 +43,13 @@ class AlbumDetails() : Fragment() {
         */
 
 
-        val title: TextView = view.findViewById(R.id.album_title)
-        title.text = AlbumDetailsArgs.fromBundle(requireArguments()).album
+        GlobalScope.launch(Dispatchers.Default) {
+            val response = NetworkManager.getAlbum("2115888")
 
-
+            withContext(Dispatchers.Main){
+                album_title.text = response.album.getName()
+            }
+        }
 
 
     }
