@@ -4,11 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -27,8 +24,6 @@ class AlbumRankingList : Fragment(){
     }
     */
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -42,27 +37,22 @@ class AlbumRankingList : Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //potentiellement ici qu'il faut call l'API pour récupérer la liste d'album
-        /*val albumList = List(30) { album ->
-            "${
+        /*
+        GlobalScope.launch(Dispatchers.Default) {
+            val response = NetworkManager.getAlbum("2115888")
 
-            }"
-        }*/
-        val track1 = Track("track1", "Moi")
-        val track2 = Track("track2", "Toi")
-        val track3 = Track("track3", "Eux")
-        val trackList = listOf(track1, track2, track3)
+            withContext(Dispatchers.Main) {
+                val albumList = response.album
+            }
+        }
+        */
 
-        val track4 = Track("track4", "Moi")
-        val track5 = Track("track5", "Toi")
-        val track6 = Track("track6", "Eux")
-        val trackList2 = listOf(track4, track5, track6)
+        val album1 = Album("album1", "zemlfkjz", "sege", "ssdb ", "Je suis la descritption 1")
+        val album2 = Album("album2", "sdvsdsv","vdfv", "ezfz ", "Je suis la descritption 2")
+        val album3 = Album("album2", "sdvsdsv","vdfv", "ezfz ", "Je suis la descritption 3")
+        val album4 = Album("album2", "sdvsdsv","vdfv", "ezfz ", "Je suis la descritption 4")
 
-        val album1 = Album("album1", "zemlfkjz", trackList)
-        val album2 = Album("album2", "sdvsdsv", trackList2)
-
-
-        val albumList = listOf(album1, album2)
+        val albumList = listOf(album1, album2, album3, album4)
 
 
         val main_list = view.findViewById<RecyclerView>(R.id.main_list)
@@ -80,9 +70,7 @@ class AlbumRankingList : Fragment(){
                 }
             })
             addItemDecoration(
-                DividerItemDecoration(
-                    requireContext(),
-                    DividerItemDecoration.VERTICAL
+                DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL
                 )
             )
         }
@@ -99,11 +87,11 @@ class AlbumRankingList : Fragment(){
 
         override fun onBindViewHolder(cell: AlbumRankingItemCell, position: Int) {
             //boucler sur les cell pour afficher les noms des albums
-            cell.text.text = albumList[position].getName()
+            cell.text.text = albumList[position].strAlbum
 
 
             cell.text.setOnClickListener {
-                listener.onItemClicked(albumList[position].getName())
+                listener.onItemClicked(albumList[position].strAlbum)
             }
 
         }

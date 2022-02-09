@@ -6,6 +6,8 @@ import android.os.Bundle
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.search)
+        setContentView(R.layout.album_ranking_list)
+
+
     }
 }

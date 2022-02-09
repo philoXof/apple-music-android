@@ -14,4 +14,16 @@
         app:defaultNavHost="true"
         app:navGraph="@navigation/app_nav"/>
 
+
+    <TextView
+
+        android:id="@+id/test"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+
+
+
+        app:layout_constraintLeft_toLeftOf="@id/container"
+        app:layout_constraintTop_toTopOf="@id/container"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

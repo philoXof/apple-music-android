@@ -1,4 +1,4 @@
-package com.example.kelyan_bervin.apple_music_android.API
+package com.example.kelyan_bervin.apple_music_android.api
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import retrofit2.Retrofit
@@ -11,9 +11,10 @@ object NetworkManager {
         .addConverterFactory(GsonConverterFactory.create())
         .addCallAdapterFactory(CoroutineCallAdapterFactory())
         .build()
-        .create(API::class.java)
+        .create(API::class.java )
 
     suspend fun getAlbum(idAlbum: String): Response {
-        return retrofit.getAlbum(idAlbum).await()
+        return retrofit.getAlbumAsync(idAlbum).await()
     }
+
 }

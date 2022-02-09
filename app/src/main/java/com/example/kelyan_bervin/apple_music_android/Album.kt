@@ -1,7 +1,7 @@
 package com.example.kelyan_bervin.apple_music_android
 
 
-class Album constructor( name: String, description: String, val trackList: List<Track>){
+/*class Album constructor( name: String, description: String, val trackList: List<Track>){
 
     fun getName(): String{
         return this.getName()
@@ -11,4 +11,8 @@ class Album constructor( name: String, description: String, val trackList: List<
         return this.getDescription()
     }
 
-}
+}*/
+
+
+data class Album(val idAlbum: String, val idArtist: String, val strAlbum: String, val strArtist: String,
+                val strDescriptionEN: String)
