@@ -31,7 +31,7 @@
         app:layout_constraintLeft_toLeftOf="@id/v_left_guideline"
         app:layout_constraintRight_toRightOf="@id/v_right_guideline"
 
-        android:text="Rechercher"
+        android:text="@string/search"
         android:textStyle="bold"
         android:textSize="40sp"/>
 
@@ -90,7 +90,7 @@
         android:layout_height="wrap_content"
 
         android:layout_marginTop="8dp"
-        android:text="Artistes"
+        android:text="@string/artists"
         android:textSize="30sp"
 
         app:layout_constraintTop_toBottomOf="@+id/search_bar"
@@ -116,7 +116,7 @@
         app:layout_constraintLeft_toLeftOf="@id/v_left_guideline"
         app:layout_constraintRight_toRightOf="@id/v_right_guideline"
 
-        android:text="Album"
+        android:text="@string/album"
         android:textSize="30sp"/>
 
 
