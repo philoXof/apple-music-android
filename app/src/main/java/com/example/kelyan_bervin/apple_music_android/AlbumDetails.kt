@@ -43,6 +43,7 @@ class AlbumDetails() : Fragment() {
         */
 
 
+
         GlobalScope.launch(Dispatchers.Default) {
             val response = NetworkManager.getAlbum("2115888")
 

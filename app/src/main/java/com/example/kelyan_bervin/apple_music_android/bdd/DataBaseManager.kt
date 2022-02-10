@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.example.kelyan_bervin.apple_music_android.Album
 import com.example.kelyan_bervin.apple_music_android.Artist
+import kotlinx.coroutines.flow.Flow
 
 class DatabaseManager(context: Context) {
 
@@ -25,6 +26,9 @@ class DatabaseManager(context: Context) {
         return db.dao().findAllAlbum()
     }
 
+    suspend fun listenToAlbumChanges(): Flow<List<Album>> {
+        return db.dao().listAlbums()
+    }
 
     fun addArtist(artist: Artist){
         return db.dao().addArtist(artist)
@@ -36,6 +40,10 @@ class DatabaseManager(context: Context) {
 
     fun findAllArtist(): List<Artist> {
         return db.dao().findAllArtist()
+    }
+
+    suspend fun listenToArtistChanges(): Flow<List<Artist>> {
+        return db.dao().listArtists()
     }
 
 }
