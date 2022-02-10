@@ -11,6 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.io.IOException
 
 class AlbumDetails() : Fragment() {
 
@@ -25,30 +26,23 @@ class AlbumDetails() : Fragment() {
             false
         )
 
-
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        try {
+            GlobalScope.launch(Dispatchers.Default) {
+                println("------ Avant la requête ----")
+                val response = NetworkManager.getAlbum("2115888")
 
-        //définir ce qui sera affiché dans le TextView de album_details.xml
-
-        /*
-        val albumName = arguments?.getString("albumName")
-        val age = arguments?.getInt("age")
-
-        title.text = albumName
-        */
-
-
-        GlobalScope.launch(Dispatchers.Default) {
-            val response = NetworkManager.getAlbum("2115888")
-
-            withContext(Dispatchers.Main) {
-                album_title.text = response.album.strAlbum
+                withContext(Dispatchers.Main) {
+                    album_title.text = response.album.strAlbum
+                }
             }
+
+        } catch (e: IOException){
+            println(e)
         }
 
 

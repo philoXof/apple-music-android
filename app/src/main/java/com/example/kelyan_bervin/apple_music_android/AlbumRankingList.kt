@@ -79,6 +79,7 @@ class AlbumRankingList : Fragment(){
 
     class ListAdapter(val albumList: List<Album>, val listener: OnItemClickedListener) : RecyclerView.Adapter<AlbumRankingItemCell>(){
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AlbumRankingItemCell {
+
             return AlbumRankingItemCell(
                 LayoutInflater.from(parent.context)
                     .inflate(R.layout.album_ranking_item_cell, parent, false)
