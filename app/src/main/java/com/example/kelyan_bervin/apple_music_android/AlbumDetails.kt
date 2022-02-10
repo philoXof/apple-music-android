@@ -40,7 +40,6 @@ class AlbumDetails() : Fragment() {
                     album_title.text = response.album.strAlbum
                 }
             }
-
         } catch (e: IOException){
             println(e)
         }
