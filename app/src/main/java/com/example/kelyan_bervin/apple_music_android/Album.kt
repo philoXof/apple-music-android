@@ -1,5 +1,7 @@
 package com.example.kelyan_bervin.apple_music_android
 
+import androidx.room.Entity
+
 
 /*class Album constructor( name: String, description: String, val trackList: List<Track>){
 
@@ -13,6 +15,6 @@ package com.example.kelyan_bervin.apple_music_android
 
 }*/
 
-
+@Entity()
 data class Album(val idAlbum: String, val idArtist: String, val strAlbum: String, val strArtist: String,
                 val strDescriptionEN: String)
