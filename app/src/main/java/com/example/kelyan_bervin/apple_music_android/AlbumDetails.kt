@@ -7,10 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.kelyan_bervin.apple_music_android.api.NetworkManager
 import kotlinx.android.synthetic.main.album_details.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 import java.io.IOException
 
 class AlbumDetails() : Fragment() {
@@ -33,11 +30,13 @@ class AlbumDetails() : Fragment() {
 
         try {
             GlobalScope.launch(Dispatchers.Default) {
-                println("------ Avant la requête ----")
+
                 val response = NetworkManager.getAlbum("2115888")
+                //val response = NetworkManager.getProductTest("5000159484695") //test
 
                 withContext(Dispatchers.Main) {
                     album_title.text = response.album.strAlbum
+                    //album_title.text = response.product.name //test
                 }
             }
         } catch (e: IOException){
