@@ -32,11 +32,9 @@ class AlbumDetails() : Fragment() {
             GlobalScope.launch(Dispatchers.Default) {
 
                 val response = NetworkManager.getAlbum("2115888")
-                //val response = NetworkManager.getProductTest("5000159484695") //test
 
                 withContext(Dispatchers.Main) {
-                    album_title.text = response.album.strAlbum
-                    //album_title.text = response.product.name //test
+                    album_title.text = response.album[0].strAlbum
                 }
             }
         } catch (e: IOException){
