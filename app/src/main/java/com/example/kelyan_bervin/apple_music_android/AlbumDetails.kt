@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.kelyan_bervin.apple_music_android.api.NetworkManager
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.album_details.*
 import kotlinx.coroutines.*
 import java.io.IOException
@@ -31,16 +32,28 @@ class AlbumDetails() : Fragment() {
         try {
             GlobalScope.launch(Dispatchers.Default) {
 
-                val response = NetworkManager.getAlbum("2115888")
+                val albumResponse = NetworkManager.getAlbumById("2115888")
+
+                val trackResponse = NetworkManager.getAllTracksByIdAlbum("2115888")
 
                 withContext(Dispatchers.Main) {
-                    album_title.text = response.album[0].strAlbum
+                    //banner
+                    //Picasso.get().load(response.album[0].strAlbumThumb).into(banner.setBackgroundColor())
+                    artist_name.text = albumResponse.album[0].strArtist
+                    Picasso.get().load(albumResponse.album[0].strAlbumThumb).into(album_cover)
+                    album_title.text = albumResponse.album[0].strAlbum
+                    nb_title.text = trackResponse.track.size.toString()
+                    nb_stars.text = albumResponse.album[0].intScore
+                    nb_votes.text = albumResponse.album[0].intScoreVotes
+                    album_description.text = albumResponse.album[0].strDescriptionEN
+                    //title_list.
+
                 }
             }
         } catch (e: IOException){
             println(e)
         }
-
-
     }
+
+
 }

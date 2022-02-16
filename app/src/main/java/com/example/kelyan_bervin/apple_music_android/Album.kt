@@ -5,4 +5,4 @@ import androidx.room.PrimaryKey
 
 @Entity()
 data class Album(@PrimaryKey val idAlbum: String, val idArtist: String , val strAlbum: String, val strArtist: String,
-                 val strDescriptionEN: String)
+                 val strAlbumThumb: String, val strDescriptionEN: String, val intScore: String, val intScoreVotes: String)

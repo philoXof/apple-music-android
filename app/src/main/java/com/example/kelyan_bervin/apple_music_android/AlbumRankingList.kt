@@ -47,10 +47,14 @@ class AlbumRankingList : Fragment(){
         }
         */
 
-        val album1 = Album("album1", "zemlfkjz", "sege", "ssdb ", "Je suis la descritption 1")
-        val album2 = Album("album2", "sdvsdsv","vdfv", "ezfz ", "Je suis la descritption 2")
-        val album3 = Album("album2", "sdvsdsv","vdfv", "ezfz ", "Je suis la descritption 3")
-        val album4 = Album("album2", "sdvsdsv","vdfv", "ezfz ", "Je suis la descritption 4")
+        val album1 = Album("album1", "zemlfkjz", "sege", "ssdb ",
+                            "Je suis la descritption 1", "2", "4", "sdv")
+        val album2 = Album("album2", "sdvsdsv","vdfv", "ezfz ",
+                            "Je suis la descritption 2", "2", "4", "jksd")
+        val album3 = Album("album2", "sdvsdsv","vdfv", "ezfz ",
+                            "Je suis la descritption 3", "2", "4", "msldkh")
+        val album4 = Album("album2", "sdvsdsv","vdfv", "ezfz ",
+                "Je suis la descritption 4", "2", "4", "ssdlvk")
 
         val albumList = listOf(album1, album2, album3, album4)
 
