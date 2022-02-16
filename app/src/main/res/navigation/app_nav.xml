@@ -17,7 +17,7 @@
         android:name="com.example.kelyan_bervin.apple_music_android.AlbumDetails"
         android:label="AlbumDetails" >
         <argument
-            android:name="album"
+            android:name="idAlbum"
             app:argType="string" />
     </fragment>
 </navigation>
