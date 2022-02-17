@@ -7,6 +7,10 @@ import com.google.gson.annotations.SerializedName
 
 data class AlbumResponse(@SerializedName("album") val album: List<Album>)
 
+data class TopTenAlbumResponse(@SerializedName("loved") val album: List<Album>)
+
+data class TopTrackResponse(@SerializedName("loved") val tracks: List<Track>)
+
 data class TrackResponse(@SerializedName("track") val track: List<Track>)
 
 data class ArtistsResponse(@SerializedName("artists") val artist: List<Artist>)

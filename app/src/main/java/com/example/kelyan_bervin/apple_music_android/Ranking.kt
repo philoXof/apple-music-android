@@ -1,6 +1,7 @@
 package com.example.kelyan_bervin.apple_music_android
 
 import android.os.Bundle
+import android.os.PersistableBundle
 import androidx.annotation.Nullable
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -9,33 +10,11 @@ import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 
+class Ranking: AppCompatActivity(){
 
-//TODO :
-// * Mettre toute la logique des onglets "Albums" et "Titres" dans les fichiers Ranking et ranking.xml : ok
-// **
-// * Trouver le moyen de passer la classe Ranking en Fragment
-//                          (lorque l'on passe Ranking en type Fragment certaines fonctions ne sont plus disponible)
-// **
-// * Mettre en place la logique des onglets "Classement", "Recherche" et "Favoris" dans le main
-
-
-
-//INFOS : Pour tester les autres pages :
-// * Commenter les lignes 39 à 45
-// * Décommenter les lignes 33 à 37
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-
-/*
-        //code du prof pour utiliser le fragment AlbumDetail()
-
-        supportFragmentManager.beginTransaction()
-            .replace(android.R.id.content, AlbumDetails())
-            .commitAllowingStateLoss()
-*/
+    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
+        super.onCreate(savedInstanceState, persistentState)
+        setContentView(R.layout.ranking)
 
         val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
         val viewPager = findViewById<ViewPager>(R.id.tab_viewpager)
@@ -44,7 +23,6 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         setupViewPager(viewPager)
         tabLayout.setupWithViewPager(viewPager)
-
     }
 
     private fun setupViewPager(viewpager: ViewPager) {
@@ -60,6 +38,8 @@ class MainActivity : AppCompatActivity() {
     class ViewPagerAdapter(supportFragmentManager: FragmentManager) :
         FragmentPagerAdapter(supportFragmentManager) {
 
+        // objects of arraylist. One is of Fragment type and
+        // another one is of String type.*/
         var fragmentList1: ArrayList<Fragment> = ArrayList()
         var fragmentTitleList1: ArrayList<String> = ArrayList()
 
@@ -84,5 +64,6 @@ class MainActivity : AppCompatActivity() {
             fragmentTitleList1.add(title)
         }
     }
+
 
 }

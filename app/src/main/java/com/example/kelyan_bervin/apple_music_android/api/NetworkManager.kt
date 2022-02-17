@@ -27,7 +27,7 @@ object NetworkManager {
         return retrofit.getAlbumByArtistAndAlbumNameAsync(artistName, albumName).await()
     }
 
-    suspend fun getTopTenAlbum(): AlbumResponse {
+    suspend fun getTopTenAlbum(): TopTenAlbumResponse {
         return retrofit.getTopTenAlbumAsync().await()
     }
 
@@ -36,7 +36,7 @@ object NetworkManager {
         return retrofit.getAllTracksByIdAlbumAsync(idAlbum).await()
     }
 
-    suspend fun getTopTrack(): TrackResponse {
+    suspend fun getTopTrack(): TopTrackResponse {
         return retrofit.getTopTrackAsync().await()
     }
 

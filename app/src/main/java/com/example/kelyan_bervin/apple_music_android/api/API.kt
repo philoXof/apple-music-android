@@ -14,7 +14,7 @@ interface API {
     fun getAllAlbumByIdArtistAsync(@Query("i") idArtist: String): Deferred<AlbumResponse>
 
     @retrofit2.http.GET("mostloved.php?format=album")
-    fun getTopTenAlbumAsync(): Deferred<AlbumResponse>
+    fun getTopTenAlbumAsync(): Deferred<TopTenAlbumResponse>
 
     @retrofit2.http.GET("searchalbum.php")
     fun getAlbumByArtistAndAlbumNameAsync(@Query("s") artistName: String, @Query("a") albumName: String): Deferred<AlbumResponse>
@@ -25,7 +25,7 @@ interface API {
     fun getAllTracksByIdAlbumAsync(@Query("m") idArtist: String): Deferred<TrackResponse>
 
     @retrofit2.http.GET("mostloved.php?format=track")
-    fun getTopTrackAsync(): Deferred<TrackResponse>
+    fun getTopTrackAsync(): Deferred<TopTrackResponse>
 
 
     /************ Artist ************/
