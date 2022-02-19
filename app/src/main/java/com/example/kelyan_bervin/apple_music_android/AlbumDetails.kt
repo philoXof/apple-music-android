@@ -32,6 +32,7 @@ class AlbumDetails() : Fragment() {
         try {
             GlobalScope.launch(Dispatchers.Default) {
 
+                //val idAlbum = AlbumDetailsArgs.fromBundle(requireArguments()).idAlbumParam
                 val albumResponse = NetworkManager.getAlbumById("2115888")
 
                 val trackResponse = NetworkManager.getAllTracksByIdAlbum("2115888")

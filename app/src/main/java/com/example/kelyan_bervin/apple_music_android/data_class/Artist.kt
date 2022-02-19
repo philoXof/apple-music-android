@@ -1,4 +1,4 @@
-package com.example.kelyan_bervin.apple_music_android
+package com.example.kelyan_bervin.apple_music_android.data_class
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

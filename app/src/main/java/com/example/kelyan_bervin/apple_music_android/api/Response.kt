@@ -1,8 +1,8 @@
 package com.example.kelyan_bervin.apple_music_android.api
 
-import com.example.kelyan_bervin.apple_music_android.Album
-import com.example.kelyan_bervin.apple_music_android.Artist
-import com.example.kelyan_bervin.apple_music_android.Track
+import com.example.kelyan_bervin.apple_music_android.data_class.Album
+import com.example.kelyan_bervin.apple_music_android.data_class.Artist
+import com.example.kelyan_bervin.apple_music_android.data_class.Track
 import com.google.gson.annotations.SerializedName
 
 data class AlbumResponse(@SerializedName("album") val album: List<Album>)

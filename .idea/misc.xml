@@ -24,6 +24,7 @@
         <entry key="..\:/Users/kekeb/Documents/ESGI/4eme_annee/Android/apple-music-android/app/src/main/res/drawable/ic_recherche_loupe.xml" value="0.37864583333333335" />
         <entry key="..\:/Users/kekeb/Documents/ESGI/4eme_annee/Android/apple-music-android/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/kekeb/Documents/ESGI/4eme_annee/Android/apple-music-android/app/src/main/res/layout/album_details.xml" value="0.2740036231884058" />
+        <entry key="..\:/Users/kekeb/Documents/ESGI/4eme_annee/Android/apple-music-android/app/src/main/res/layout/album_ranking.xml" value="0.19746376811594202" />
         <entry key="..\:/Users/kekeb/Documents/ESGI/4eme_annee/Android/apple-music-android/app/src/main/res/layout/album_ranking_item_cell.xml" value="0.2740036231884058" />
         <entry key="..\:/Users/kekeb/Documents/ESGI/4eme_annee/Android/apple-music-android/app/src/main/res/layout/album_ranking_list.xml" value="0.2418478260869565" />
         <entry key="..\:/Users/kekeb/Documents/ESGI/4eme_annee/Android/apple-music-android/app/src/main/res/layout/artiste_details.xml" value="0.1762917933130699" />
@@ -33,8 +34,10 @@
         <entry key="..\:/Users/kekeb/Documents/ESGI/4eme_annee/Android/apple-music-android/app/src/main/res/layout/ranking_detail.xml" value="0.3242753623188406" />
         <entry key="..\:/Users/kekeb/Documents/ESGI/4eme_annee/Android/apple-music-android/app/src/main/res/layout/ranking_list.xml" value="0.3242753623188406" />
         <entry key="..\:/Users/kekeb/Documents/ESGI/4eme_annee/Android/apple-music-android/app/src/main/res/layout/search.xml" value="0.264" />
+        <entry key="..\:/Users/kekeb/Documents/ESGI/4eme_annee/Android/apple-music-android/app/src/main/res/layout/test.xml" value="0.2595108695652174" />
         <entry key="..\:/Users/kekeb/Documents/ESGI/4eme_annee/Android/apple-music-android/app/src/main/res/layout/track_raanking_item_cell.xml" value="0.264" />
-        <entry key="..\:/Users/kekeb/Documents/ESGI/4eme_annee/Android/apple-music-android/app/src/main/res/layout/track_ranking_item_cell.xml" value="0.1046875" />
+        <entry key="..\:/Users/kekeb/Documents/ESGI/4eme_annee/Android/apple-music-android/app/src/main/res/layout/track_ranking.xml" value="0.1" />
+        <entry key="..\:/Users/kekeb/Documents/ESGI/4eme_annee/Android/apple-music-android/app/src/main/res/layout/track_ranking_item_cell.xml" value="0.136" />
         <entry key="..\:/Users/kekeb/Documents/ESGI/4eme_annee/Android/apple-music-android/app/src/main/res/layout/track_ranking_list.xml" value="0.176" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3269927536231884" />
         <entry key="app/src/main/res/layout/album_details.xml" value="0.55" />

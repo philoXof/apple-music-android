@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
+import com.example.kelyan_bervin.apple_music_android.ranking.album_ranking.AlbumRankingList
+import com.example.kelyan_bervin.apple_music_android.ranking.track_ranking.TrackRankingList
 import com.google.android.material.tabs.TabLayout
 
 
@@ -19,23 +21,19 @@ import com.google.android.material.tabs.TabLayout
 // * Mettre en place la logique des onglets "Classement", "Recherche" et "Favoris" dans le main
 
 
-
-//INFOS : Pour tester les autres pages :
-// * Commenter les lignes 39 à 45
-// * Décommenter les lignes 33 à 37
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.ranking)
 
-
-/*
         //code du prof pour utiliser le fragment AlbumDetail()
-
+/*
         supportFragmentManager.beginTransaction()
-            .replace(android.R.id.content, AlbumDetails())
+            .replace(android.R.id.content, TrackRankingList())
             .commitAllowingStateLoss()
+
 */
+
 
         val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
         val viewPager = findViewById<ViewPager>(R.id.tab_viewpager)
@@ -45,13 +43,15 @@ class MainActivity : AppCompatActivity() {
         setupViewPager(viewPager)
         tabLayout.setupWithViewPager(viewPager)
 
+
     }
+
 
     private fun setupViewPager(viewpager: ViewPager) {
         val adapter = ViewPagerAdapter(supportFragmentManager)
 
-        adapter.addFragment(AlbumRankingList(), "Albums")
         adapter.addFragment(TrackRankingList(), "Titres")
+        adapter.addFragment(AlbumRankingList(), "Albums")
 
         viewpager.adapter = adapter
     }
@@ -84,5 +84,7 @@ class MainActivity : AppCompatActivity() {
             fragmentTitleList1.add(title)
         }
     }
+
+
 
 }

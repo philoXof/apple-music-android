@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
+import com.example.kelyan_bervin.apple_music_android.ranking.album_ranking.AlbumRankingList
+import com.example.kelyan_bervin.apple_music_android.ranking.track_ranking.TrackRankingList
 import com.google.android.material.tabs.TabLayout
 
 class Ranking: AppCompatActivity(){
@@ -28,8 +30,8 @@ class Ranking: AppCompatActivity(){
     private fun setupViewPager(viewpager: ViewPager) {
         val adapter = ViewPagerAdapter(supportFragmentManager)
 
-        adapter.addFragment(AlbumRankingList(), "Albums")
         adapter.addFragment(TrackRankingList(), "Titres")
+        adapter.addFragment(AlbumRankingList(), "Albums")
 
         viewpager.adapter = adapter
     }

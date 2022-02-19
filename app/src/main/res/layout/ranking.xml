@@ -24,13 +24,6 @@
 
         <!-- tablayout which contains which is
              important to show tabs -->
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tab_tablayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:tabIndicatorColor="#FFF"
-            app:tabIndicatorHeight="3dp"
-            app:tabMode="fixed" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <!-- view pager is used to open other fragment by using
@@ -40,6 +33,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="5dp"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" >
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_tablayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabIndicatorColor="#FFF"
+            app:tabIndicatorHeight="3dp"
+            app:tabMode="fixed" />
+    </androidx.viewpager.widget.ViewPager>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

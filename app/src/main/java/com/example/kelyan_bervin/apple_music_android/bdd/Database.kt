@@ -1,8 +1,8 @@
 package com.example.kelyan_bervin.apple_music_android.bdd
 
 import androidx.room.*
-import com.example.kelyan_bervin.apple_music_android.Album
-import com.example.kelyan_bervin.apple_music_android.Artist
+import com.example.kelyan_bervin.apple_music_android.data_class.Album
+import com.example.kelyan_bervin.apple_music_android.data_class.Artist
 import kotlinx.coroutines.flow.Flow
 
 
