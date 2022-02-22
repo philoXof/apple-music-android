@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.kelyan_bervin.apple_music_android.api.NetworkManager
+import com.example.kelyan_bervin.apple_music_android.bdd.DatabaseManager
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.artiste_details.*
 import kotlinx.coroutines.Dispatchers
@@ -50,6 +51,20 @@ class ArtistDetails(): Fragment() {
         } catch (e: IOException){
             println(e)
         }
+
+
+
+        like_button.setOnClickListener {
+            GlobalScope.launch {
+                val artistResponse = NetworkManager.getArtistById("112024")
+
+                val databaseManager = context?.let { it1 -> DatabaseManager(it1) }
+
+                databaseManager?.addArtist(artistResponse.artist[0])
+            }
+        }
+
+
     }
 
 

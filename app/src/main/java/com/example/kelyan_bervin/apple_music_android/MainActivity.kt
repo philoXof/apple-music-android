@@ -28,12 +28,12 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.album_details)
+        setContentView(R.layout.artiste_details)
 
         //code du prof pour utiliser le fragment AlbumDetail()
 
         supportFragmentManager.beginTransaction()
-            .replace(android.R.id.content, AlbumDetails())
+            .replace(android.R.id.content, ArtistDetails())
             .commitAllowingStateLoss()
 
 
