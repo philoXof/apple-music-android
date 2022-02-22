@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kelyan_bervin.apple_music_android.R
 import com.example.kelyan_bervin.apple_music_android.data_class.Track
+import com.squareup.picasso.Picasso
 
 
 class TrackRankingListAdapter(val topTrackList: List<Track>): RecyclerView.Adapter<TrackRankingItemCell>() {
@@ -17,11 +18,9 @@ class TrackRankingListAdapter(val topTrackList: List<Track>): RecyclerView.Adapt
     }
 
     override fun onBindViewHolder(cell: TrackRankingItemCell, position: Int) {
-        //cell.testContent.text = topTrackList[position].idArtist
-
         val number = position + 1
         cell.number.text = number.toString()
-        //cell.cover = topTrackList[position].strTrackThumb
+        Picasso.get().load(topTrackList[position].strTrackThumb).into(cell.cover)
         cell.track_title.text = topTrackList[position].strTrack
         cell.track_artist.text = topTrackList[position].strArtist
     }

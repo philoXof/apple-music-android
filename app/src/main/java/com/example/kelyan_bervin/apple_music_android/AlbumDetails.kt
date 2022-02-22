@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.kelyan_bervin.apple_music_android.api.NetworkManager
+import com.example.kelyan_bervin.apple_music_android.bdd.DatabaseManager
+import com.example.kelyan_bervin.apple_music_android.data_class.Album
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.album_details.*
 import kotlinx.coroutines.*
@@ -33,9 +35,13 @@ class AlbumDetails() : Fragment() {
             GlobalScope.launch(Dispatchers.Default) {
 
                 //val idAlbum = AlbumDetailsArgs.fromBundle(requireArguments()).idAlbumParam
+                //println("idAlbum = $idAlbum")
+
                 val albumResponse = NetworkManager.getAlbumById("2115888")
+                //val albumResponse = NetworkManager.getAlbumById(idAlbum)
 
                 val trackResponse = NetworkManager.getAllTracksByIdAlbum("2115888")
+                ///val trackResponse = NetworkManager.getAllTracksByIdAlbum(idAlbum)
 
                 withContext(Dispatchers.Main) {
                     //banner
@@ -54,6 +60,24 @@ class AlbumDetails() : Fragment() {
         } catch (e: IOException){
             println(e)
         }
+
+
+        like_button.setOnClickListener {
+            GlobalScope.launch {
+
+                //val idAlbum = AlbumDetailsArgs.fromBundle(requireArguments()).idAlbumParam
+                //println("idAlbum = $idAlbum")
+
+                val albumResponse = NetworkManager.getAlbumById("2115888")
+                //val albumResponse = NetworkManager.getAlbumById(idAlbum)
+
+                val databaseManager = context?.let { it1 -> DatabaseManager(it1) }
+
+                databaseManager?.addAlbum(albumResponse.album[0])
+            }
+        }
+
+
     }
 
 

@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kelyan_bervin.apple_music_android.R
 import com.example.kelyan_bervin.apple_music_android.data_class.Track
 import com.example.kelyan_bervin.apple_music_android.api.NetworkManager
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.track_ranking_item_cell.*
 import kotlinx.android.synthetic.main.track_ranking_list.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -34,27 +36,16 @@ class TrackRankingList: Fragment() {
             val response = NetworkManager.getTopTrack()
 
             withContext(Dispatchers.Main) {
-                //topTrackList.addAll(response.tracks)
+
+                topTrackList.addAll(response.tracks)
+
+                track_ranking_list.run {
+                    layoutManager = LinearLayoutManager(activity)
+                    adapter = TrackRankingListAdapter(topTrackList)
+                }
             }
         }
 
-        val track1 = Track("1", "e", "track1", "strTrack", "e", "strArtist", "e")
-        val track2 = Track("2", "e", "track2", "strTrack", "e", "strArtist", "e")
-        val track3 = Track("3", "e", "track3", "strTrack", "e", "strArtist", "e")
-        val track4 = Track("4", "e", "track4", "strTrack", "e", "strArtist", "e")
-        val track5 = Track("5", "e", "track5", "strTrack", "e", "strArtist", "e")
-
-        topTrackList.add(track1)
-        topTrackList.add( track2)
-        topTrackList.add(track3)
-        topTrackList.add(track4)
-        topTrackList.add(track5)
-        
-
-        track_ranking_list.run {
-            layoutManager = LinearLayoutManager(activity)
-            adapter = TrackRankingListAdapter(topTrackList)
-        }
     }
 
 

@@ -7,9 +7,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
+import com.example.kelyan_bervin.apple_music_android.bdd.DatabaseManager
+import com.example.kelyan_bervin.apple_music_android.data_class.Album
 import com.example.kelyan_bervin.apple_music_android.ranking.album_ranking.AlbumRankingList
 import com.example.kelyan_bervin.apple_music_android.ranking.track_ranking.TrackRankingList
 import com.google.android.material.tabs.TabLayout
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 
 //TODO :
@@ -24,17 +28,28 @@ import com.google.android.material.tabs.TabLayout
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.ranking)
+        setContentView(R.layout.album_details)
 
         //code du prof pour utiliser le fragment AlbumDetail()
-/*
+
         supportFragmentManager.beginTransaction()
-            .replace(android.R.id.content, TrackRankingList())
+            .replace(android.R.id.content, AlbumDetails())
             .commitAllowingStateLoss()
 
-*/
+
+        GlobalScope.launch {
+            val databaseManager = DatabaseManager(this@MainActivity)
+            databaseManager.addAlbum(
+                Album("test", "test", "test", "test",
+                    "test", "test", "test", "test")
+            )
+
+            val listAlbumTest = databaseManager.findAllAlbum()
+            print(listAlbumTest.size)
+        }
 
 
+/*
         val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
         val viewPager = findViewById<ViewPager>(R.id.tab_viewpager)
         val tabLayout = findViewById<TabLayout>(R.id.tab_tablayout)
@@ -42,7 +57,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         setupViewPager(viewPager)
         tabLayout.setupWithViewPager(viewPager)
-
+*/
 
     }
 

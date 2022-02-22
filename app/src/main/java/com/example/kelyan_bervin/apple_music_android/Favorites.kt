@@ -5,6 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.kelyan_bervin.apple_music_android.bdd.DatabaseManager
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class Favorites(): Fragment() {
 

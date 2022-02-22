@@ -37,6 +37,8 @@
          left or right swip-->
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/tab_viewpager"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="5dp"
