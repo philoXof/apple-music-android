@@ -20,4 +20,18 @@
             android:name="idAlbumParam"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/trackRankingList"
+        android:name="com.example.kelyan_bervin.apple_music_android.ranking.track_ranking.TrackRankingList"
+        android:label="TrackRankingList" >
+        <action
+            android:id="@+id/action_trackRankingList_to_artistDetails"
+            app:destination="@id/artistDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/artistDetails"
+        android:name="com.example.kelyan_bervin.apple_music_android.ArtistDetails"
+        android:label="ArtistDetails" >
+        <argument android:name="idTrackParam" />
+    </fragment>
 </navigation>

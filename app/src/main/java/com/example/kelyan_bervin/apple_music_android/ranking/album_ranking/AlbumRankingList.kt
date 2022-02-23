@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.*
 import com.example.kelyan_bervin.apple_music_android.R
 import com.example.kelyan_bervin.apple_music_android.api.NetworkManager
@@ -15,8 +16,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import androidx.navigation.fragment.findNavController
-import kotlinx.android.synthetic.main.album_ranking_item_cell.*
 import java.io.IOException
 
 
@@ -51,12 +50,24 @@ class AlbumRankingList : Fragment(){
                             override fun onItemClicked(idAlbum: String) {
                                 Toast.makeText(context, idAlbum, Toast.LENGTH_SHORT).show()
 
-                                /*findNavController().navigate(
+                                findNavController().navigate(
                                     AlbumRankingListDirections.actionAlbumRankingListToAlbumDetails(
                                         idAlbumParam = idAlbum
                                     )
                                 )
+
+                                /*val arguments = Bundle()
+                                arguments.putString("idAlbumParam", idAlbum)
+                                val fragment = AlbumDetails()
+                                fragment.arguments = arguments
+
                                  */
+
+                                //val bundle = bundleOf(Pair("idAlbum", String))
+                                //view.findNavController().navigate(R.id.albumDetails)
+
+
+
                             }
 
 

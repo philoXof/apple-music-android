@@ -34,14 +34,15 @@ class AlbumDetails() : Fragment() {
         try {
             GlobalScope.launch(Dispatchers.Default) {
 
-                //val idAlbum = AlbumDetailsArgs.fromBundle(requireArguments()).idAlbumParam
-                //println("idAlbum = $idAlbum")
+                val idAlbum = AlbumDetailsArgs.fromBundle(requireArguments()).idAlbumParam
+                println("idAlbum = $idAlbum")
 
-                val albumResponse = NetworkManager.getAlbumById("2115888")
-                //val albumResponse = NetworkManager.getAlbumById(idAlbum)
 
-                val trackResponse = NetworkManager.getAllTracksByIdAlbum("2115888")
-                ///val trackResponse = NetworkManager.getAllTracksByIdAlbum(idAlbum)
+                //val albumResponse = NetworkManager.getAlbumById("2115888")
+                val albumResponse = NetworkManager.getAlbumById(idAlbum)
+
+                //val trackResponse = NetworkManager.getAllTracksByIdAlbum("2115888")
+                val trackResponse = NetworkManager.getAllTracksByIdAlbum(idAlbum)
 
                 withContext(Dispatchers.Main) {
                     //banner

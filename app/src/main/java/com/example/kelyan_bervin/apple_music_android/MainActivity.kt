@@ -28,28 +28,19 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.artiste_details)
+        setContentView(R.layout.activity_main)
 
         //code du prof pour utiliser le fragment AlbumDetail()
-
-        supportFragmentManager.beginTransaction()
-            .replace(android.R.id.content, ArtistDetails())
-            .commitAllowingStateLoss()
-
-
-        GlobalScope.launch {
-            val databaseManager = DatabaseManager(this@MainActivity)
-            databaseManager.addAlbum(
-                Album("test", "test", "test", "test",
-                    "test", "test", "test", "test")
-            )
-
-            val listAlbumTest = databaseManager.findAllAlbum()
-            print(listAlbumTest.size)
-        }
-
-
 /*
+        supportFragmentManager.beginTransaction()
+            .replace(android.R.id.content, MainActivity())
+            .commitAllowingStateLoss()
+*/
+
+
+
+
+
         val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
         val viewPager = findViewById<ViewPager>(R.id.tab_viewpager)
         val tabLayout = findViewById<TabLayout>(R.id.tab_tablayout)
@@ -57,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         setupViewPager(viewPager)
         tabLayout.setupWithViewPager(viewPager)
-*/
+
 
     }
 
