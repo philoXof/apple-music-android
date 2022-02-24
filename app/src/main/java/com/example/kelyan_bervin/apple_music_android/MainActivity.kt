@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.example.kelyan_bervin.apple_music_android.bdd.DatabaseManager
 import com.example.kelyan_bervin.apple_music_android.data_class.Album
+import com.example.kelyan_bervin.apple_music_android.favorites.Favorites
 import com.example.kelyan_bervin.apple_music_android.ranking.album_ranking.AlbumRankingList
 import com.example.kelyan_bervin.apple_music_android.ranking.track_ranking.TrackRankingList
 import com.google.android.material.tabs.TabLayout
@@ -28,19 +29,19 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.favorites)
 
         //code du prof pour utiliser le fragment AlbumDetail()
-/*
+
         supportFragmentManager.beginTransaction()
-            .replace(android.R.id.content, MainActivity())
+            .replace(android.R.id.content, Favorites())
             .commitAllowingStateLoss()
-*/
 
 
 
 
 
+/*
         val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
         val viewPager = findViewById<ViewPager>(R.id.tab_viewpager)
         val tabLayout = findViewById<TabLayout>(R.id.tab_tablayout)
@@ -50,8 +51,11 @@ class MainActivity : AppCompatActivity() {
         tabLayout.setupWithViewPager(viewPager)
 
 
+ */
+
     }
 
+/*
 
     private fun setupViewPager(viewpager: ViewPager) {
         val adapter = ViewPagerAdapter(supportFragmentManager)
@@ -92,5 +96,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+
+*/
 
 }

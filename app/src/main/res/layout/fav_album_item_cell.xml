@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_fav_album_item_cell"
+        android:layout_width="match_parent"
+        android:layout_height="90dp">
+
+
+        <ImageView
+            android:id="@+id/fav_album_cover"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_margin="20dp"
+
+            app:layout_constraintTop_toTopOf="@id/constraint_fav_album_item_cell"
+            app:layout_constraintLeft_toLeftOf="@id/constraint_fav_album_item_cell"/>
+
+
+        <TextView
+            android:id="@+id/fav_album_title"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_margin="10dp"
+
+            app:layout_constraintTop_toTopOf="@id/constraint_fav_album_item_cell"
+            app:layout_constraintLeft_toRightOf="@+id/fav_album_cover"/>
+
+        <TextView
+            android:id="@+id/fav_album_artist_name"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+
+            app:layout_constraintTop_toBottomOf="@+id/fav_album_title"
+            app:layout_constraintLeft_toRightOf="@id/fav_album_cover"/>
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/v_fav_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.87"/>
+
+        <ImageView
+            android:id="@+id/fav_album_right_arrow"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+
+            android:src="@drawable/ic_fleche_droite"
+
+            app:layout_constraintTop_toTopOf="@id/constraint_fav_album_item_cell"
+            app:layout_constraintLeft_toRightOf="@id/v_fav_guideline"/>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+</LinearLayout>

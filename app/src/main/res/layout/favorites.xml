@@ -61,7 +61,7 @@
         app:layout_constraintRight_toRightOf="@id/v_right_guideline" />
 
 
-    <ListView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/fav_artist_list"
         android:layout_width="0dp"
         android:layout_height="250dp"
@@ -84,7 +84,7 @@
         android:textSize="30sp"/>
 
 
-    <ListView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/fav_album_list"
         android:layout_width="0dp"
         android:layout_height="250dp"

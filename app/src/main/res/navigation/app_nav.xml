@@ -34,4 +34,15 @@
         android:label="ArtistDetails" >
         <argument android:name="idTrackParam" />
     </fragment>
+    <fragment
+        android:id="@+id/favorites"
+        android:name="com.example.kelyan_bervin.apple_music_android.favorites.Favorites"
+        android:label="Favorites" >
+        <action
+            android:id="@+id/action_favorites_to_artistDetails"
+            app:destination="@id/artistDetails" />
+        <action
+            android:id="@+id/action_favorites_to_albumDetails"
+            app:destination="@id/albumDetails" />
+    </fragment>
 </navigation>
