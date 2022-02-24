@@ -7,7 +7,7 @@ import com.example.kelyan_bervin.apple_music_android.R
 import com.example.kelyan_bervin.apple_music_android.data_class.Album
 import com.squareup.picasso.Picasso
 
-class AlbumRankingListAdapter(val albumList: List<Album>, val listener: OnItemClickedListener) : RecyclerView.Adapter<AlbumRankingItemCell>(){
+class AlbumRankingListAdapter(private val albumList: List<Album>, private val listener: OnItemClickedListener) : RecyclerView.Adapter<AlbumRankingItemCell>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AlbumRankingItemCell {
         return AlbumRankingItemCell(

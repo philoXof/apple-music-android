@@ -6,8 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.*
+import com.example.kelyan_bervin.apple_music_android.AlbumDetails
+import com.example.kelyan_bervin.apple_music_android.MainActivity
 import com.example.kelyan_bervin.apple_music_android.R
 import com.example.kelyan_bervin.apple_music_android.api.NetworkManager
 import com.example.kelyan_bervin.apple_music_android.data_class.Album
@@ -50,6 +55,7 @@ class AlbumRankingList : Fragment(){
                             override fun onItemClicked(idAlbum: String) {
                                 Toast.makeText(context, idAlbum, Toast.LENGTH_SHORT).show()
 
+
                                 findNavController().navigate(
                                     AlbumRankingListDirections.actionAlbumRankingListToAlbumDetails(
                                         idAlbumParam = idAlbum
@@ -66,10 +72,7 @@ class AlbumRankingList : Fragment(){
                                 //val bundle = bundleOf(Pair("idAlbum", String))
                                 //view.findNavController().navigate(R.id.albumDetails)
 
-
-
                             }
-
 
                         })
                         addItemDecoration(
