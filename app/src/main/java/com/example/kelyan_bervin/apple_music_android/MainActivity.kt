@@ -1,11 +1,13 @@
 package com.example.kelyan_bervin.apple_music_android
 
 import android.os.Bundle
+import android.service.notification.NotificationListenerService
 import androidx.annotation.Nullable
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import androidx.fragment.app.commit
 import androidx.viewpager.widget.ViewPager
 import com.example.kelyan_bervin.apple_music_android.bdd.DatabaseManager
 import com.example.kelyan_bervin.apple_music_android.data_class.Album
@@ -19,7 +21,7 @@ import kotlinx.coroutines.launch
 
 
 //TODO :
-// * Mettre toute la logique des onglets "Albums" et "Titres" dans les fichiers Ranking et ranking.xml : ok
+// * Mettre toute la logique des onglets "Albums" et "Titres" dans les fichiers Ranking et ranking.xml : ko
 // **
 // * Trouver le moyen de passer la classe Ranking en Fragment
 //                          (lorque l'on passe Ranking en type Fragment certaines fonctions ne sont plus disponible)
@@ -30,14 +32,14 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.search)
+        setContentView(R.layout.ranking)
 
         //code du prof pour utiliser le fragment AlbumDetail()
 
-        supportFragmentManager.beginTransaction()
-            .replace(android.R.id.content, Search())
-            .commitAllowingStateLoss()
 
+        supportFragmentManager.beginTransaction()
+            .replace(android.R.id.content, Ranking())
+            .commitAllowingStateLoss()
 
 
 
@@ -51,14 +53,15 @@ class MainActivity : AppCompatActivity() {
         setupViewPager(viewPager)
         tabLayout.setupWithViewPager(viewPager)
 
-
  */
+
+
 
     }
 
-/*
 
-    private fun setupViewPager(viewpager: ViewPager) {
+
+     fun setupViewPager(viewpager: ViewPager) {
         val adapter = ViewPagerAdapter(supportFragmentManager)
 
         adapter.addFragment(TrackRankingList(), "Titres")
@@ -68,36 +71,37 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+
+    /* TODO: Mettre dans un fichier */
     class ViewPagerAdapter(supportFragmentManager: FragmentManager) :
         FragmentPagerAdapter(supportFragmentManager) {
 
-        var fragmentList1: ArrayList<Fragment> = ArrayList()
-        var fragmentTitleList1: ArrayList<String> = ArrayList()
+        var fragmentList: ArrayList<Fragment> = ArrayList()
+        var fragmentTitleList: ArrayList<String> = ArrayList()
 
 
         override fun getItem(position: Int): Fragment {
-            return fragmentList1[position]
+            return fragmentList[position]
         }
 
 
         @Nullable
         override fun getPageTitle(position: Int): CharSequence {
-            return fragmentTitleList1.get(position)
+            return fragmentTitleList.get(position)
         }
 
         override fun getCount(): Int {
-            return fragmentList1.size
+            return fragmentList.size
         }
 
-        // this function adds the fragment and title in 2 separate arraylist.
         fun addFragment(fragment: Fragment, title: String) {
-            fragmentList1.add(fragment)
-            fragmentTitleList1.add(title)
+            fragmentList.add(fragment)
+            fragmentTitleList.add(title)
         }
     }
 
 
 
-*/
+
 
 }
