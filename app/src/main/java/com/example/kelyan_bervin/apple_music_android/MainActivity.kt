@@ -12,6 +12,7 @@ import com.example.kelyan_bervin.apple_music_android.data_class.Album
 import com.example.kelyan_bervin.apple_music_android.favorites.Favorites
 import com.example.kelyan_bervin.apple_music_android.ranking.album_ranking.AlbumRankingList
 import com.example.kelyan_bervin.apple_music_android.ranking.track_ranking.TrackRankingList
+import com.example.kelyan_bervin.apple_music_android.search.Search
 import com.google.android.material.tabs.TabLayout
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -29,12 +30,12 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.favorites)
+        setContentView(R.layout.search)
 
         //code du prof pour utiliser le fragment AlbumDetail()
 
         supportFragmentManager.beginTransaction()
-            .replace(android.R.id.content, Favorites())
+            .replace(android.R.id.content, Search())
             .commitAllowingStateLoss()
 
 

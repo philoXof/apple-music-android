@@ -32,7 +32,11 @@
         android:id="@+id/artistDetails"
         android:name="com.example.kelyan_bervin.apple_music_android.ArtistDetails"
         android:label="ArtistDetails" >
-        <argument android:name="idTrackParam" />
+        <argument android:name="idTrackParam"
+            app:argType="string" />
+        <argument
+            android:name="idArtistParam"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/favorites"

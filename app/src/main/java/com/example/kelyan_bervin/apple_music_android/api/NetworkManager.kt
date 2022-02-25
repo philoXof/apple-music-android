@@ -23,6 +23,10 @@ object NetworkManager {
         return retrofit.getAllAlbumByIdArtistAsync(idArtist).await()
     }
 
+    suspend fun getAllAlbumByArtistName(artistName: String): AlbumResponse {
+        return retrofit.getAllAlbumByArtistNameAsync(artistName).await()
+    }
+
     suspend fun getAlbumByArtistAndAlbumName(artistName: String, albumName: String): AlbumResponse{
         return retrofit.getAlbumByArtistAndAlbumNameAsync(artistName, albumName).await()
     }
@@ -41,6 +45,10 @@ object NetworkManager {
     }
 
     /************ Artist ************/
+    suspend fun getArtistByName(artistName: String): ArtistsResponse {
+        return retrofit.getArtistByNameAsync(artistName).await()
+    }
+
     suspend fun getArtistById(idArtist: String): ArtistsResponse {
         return retrofit.getArtistByIdAsync(idArtist).await()
     }

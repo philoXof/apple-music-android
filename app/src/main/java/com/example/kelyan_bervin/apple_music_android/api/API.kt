@@ -13,6 +13,9 @@ interface API {
     @retrofit2.http.GET("album.php")
     fun getAllAlbumByIdArtistAsync(@Query("i") idArtist: String): Deferred<AlbumResponse>
 
+    @retrofit2.http.GET("searchalbum.php")
+    fun getAllAlbumByArtistNameAsync(@Query("s") artistName: String): Deferred<AlbumResponse>
+
     @retrofit2.http.GET("mostloved.php?format=album")
     fun getTopTenAlbumAsync(): Deferred<TopTenAlbumResponse>
 
@@ -29,6 +32,9 @@ interface API {
 
 
     /************ Artist ************/
+    @retrofit2.http.GET("search.php")
+    fun getArtistByNameAsync(@Query("s") artistName: String): Deferred<ArtistsResponse>
+
     @retrofit2.http.GET("artist.php")
     fun getArtistByIdAsync(@Query("i") idArtist: String): Deferred<ArtistsResponse>
 

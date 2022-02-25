@@ -50,7 +50,8 @@ class TrackRankingList: Fragment() {
 
                             findNavController().navigate(
                                 TrackRankingListDirections.actionTrackRankingListToArtistDetails(
-                                    idTrackParam = idTrack
+                                    idTrackParam = idTrack,
+                                    idArtistParam = null.toString()
                                 )
                             )
 
