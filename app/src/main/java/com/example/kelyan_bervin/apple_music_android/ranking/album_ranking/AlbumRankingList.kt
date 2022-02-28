@@ -1,21 +1,18 @@
 package com.example.kelyan_bervin.apple_music_android.ranking.album_ranking
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
+
 import androidx.recyclerview.widget.*
-import com.example.kelyan_bervin.apple_music_android.AlbumDetails
-import com.example.kelyan_bervin.apple_music_android.MainActivity
 import com.example.kelyan_bervin.apple_music_android.R
 import com.example.kelyan_bervin.apple_music_android.api.NetworkManager
 import com.example.kelyan_bervin.apple_music_android.data_class.Album
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.album_ranking_list.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -40,6 +37,9 @@ class AlbumRankingList : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        albumRankingListProgressBar.visibility = View.VISIBLE
+
+
         val albumList = arrayListOf<Album>()
 
         try {
@@ -56,11 +56,13 @@ class AlbumRankingList : Fragment(){
                                 Toast.makeText(context, idAlbum, Toast.LENGTH_SHORT).show()
 
 
-                                findNavController().navigate(
+                                val intent: Intent = Intent()
+
+                                /*findNavController().navigate(
                                     AlbumRankingListDirections.actionAlbumRankingListToAlbumDetails(
                                         idAlbumParam = idAlbum
                                     )
-                                )
+                                )*/
 
                                 /*val arguments = Bundle()
                                 arguments.putString("idAlbumParam", idAlbum)
@@ -75,11 +77,7 @@ class AlbumRankingList : Fragment(){
                             }
 
                         })
-                        addItemDecoration(
-                            DividerItemDecoration(
-                                requireContext(), DividerItemDecoration.VERTICAL
-                            )
-                        )
+                        albumRankingListProgressBar.visibility = View.GONE
                     }
                 }
 

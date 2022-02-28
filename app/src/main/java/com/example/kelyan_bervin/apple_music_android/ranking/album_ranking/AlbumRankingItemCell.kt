@@ -12,4 +12,5 @@ class AlbumRankingItemCell (v: View) : RecyclerView.ViewHolder(v) {
     val album_cover: ImageView = v.album_ranking_cover
     val album_title: TextView = v.album_title
     val album_artist: TextView = v.album_artist
+
 }

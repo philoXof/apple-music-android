@@ -10,7 +10,8 @@
     <string name="album">Album</string>
     <string name="favorite">Favoris</string>
     <string name="favorite_page_title"><![CDATA[Mes artistes & albums]]></string>
-    <string name="artists_location">%1$s</string>
+    <string name="artist_country">%1$s</string>
+    <string name="artist_genre">%1$s</string>
     <string name="artist_description">%1$s</string>
     <string name="albums_artist_profil">Albums(%1$s)</string>
     <string name="top_10_tracks">titres les plus écoutés</string>

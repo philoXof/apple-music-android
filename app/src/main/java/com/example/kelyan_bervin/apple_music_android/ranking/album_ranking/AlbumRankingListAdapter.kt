@@ -2,6 +2,7 @@ package com.example.kelyan_bervin.apple_music_android.ranking.album_ranking
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kelyan_bervin.apple_music_android.R
 import com.example.kelyan_bervin.apple_music_android.data_class.Album
@@ -24,7 +25,13 @@ class AlbumRankingListAdapter(private val albumList: List<Album>, private val li
         cell.album_artist.text = albumList[position].strArtist
 
         cell.album_title.setOnClickListener {
-            listener.onItemClicked(albumList[position].idAlbum)
+            findNavController(it).navigate(
+                AlbumRankingListDirections.actionAlbumRankingListToAlbumDetails(
+                    idAlbumParam = albumList[position].idAlbum
+                )
+            )
+
+        //listener.onItemClicked(albumList[position].idAlbum)
         }
 
     }

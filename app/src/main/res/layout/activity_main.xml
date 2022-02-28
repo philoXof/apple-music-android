@@ -45,4 +45,15 @@
         android:layout_marginTop="5dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/main_tab_tablayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_anchor="@+id/tab_viewpager"
+        app:layout_anchorGravity="bottom|center"
+        app:tabIndicatorColor="#FFF"
+        app:tabIndicatorHeight="3dp"
+        app:tabMode="fixed" />
+
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

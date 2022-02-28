@@ -1,19 +1,13 @@
-package com.example.kelyan_bervin.apple_music_android
+package com.example.kelyan_bervin.apple_music_android.ranking
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.Nullable
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
-import com.example.kelyan_bervin.apple_music_android.ranking.album_ranking.AlbumRankingList
-import com.example.kelyan_bervin.apple_music_android.ranking.track_ranking.TrackRankingList
+import com.example.kelyan_bervin.apple_music_android.MainActivity
+import com.example.kelyan_bervin.apple_music_android.R
 import com.google.android.material.tabs.TabLayout
 
 class Ranking: Fragment(){

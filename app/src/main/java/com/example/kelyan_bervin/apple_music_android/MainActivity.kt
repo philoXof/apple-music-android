@@ -1,23 +1,17 @@
 package com.example.kelyan_bervin.apple_music_android
 
 import android.os.Bundle
-import android.service.notification.NotificationListenerService
 import androidx.annotation.Nullable
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import androidx.fragment.app.commit
 import androidx.viewpager.widget.ViewPager
-import com.example.kelyan_bervin.apple_music_android.bdd.DatabaseManager
-import com.example.kelyan_bervin.apple_music_android.data_class.Album
+import com.example.kelyan_bervin.apple_music_android.details.artist.ArtistDetails
 import com.example.kelyan_bervin.apple_music_android.favorites.Favorites
 import com.example.kelyan_bervin.apple_music_android.ranking.album_ranking.AlbumRankingList
 import com.example.kelyan_bervin.apple_music_android.ranking.track_ranking.TrackRankingList
 import com.example.kelyan_bervin.apple_music_android.search.Search
-import com.google.android.material.tabs.TabLayout
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 
 //TODO :
@@ -32,40 +26,53 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.ranking)
+        setContentView(R.layout.artist_details)
 
         //code du prof pour utiliser le fragment AlbumDetail()
 
 
         supportFragmentManager.beginTransaction()
-            .replace(android.R.id.content, Ranking())
+            .replace(android.R.id.content, ArtistDetails())
             .commitAllowingStateLoss()
-
-
 
 
 /*
         val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
         val viewPager = findViewById<ViewPager>(R.id.tab_viewpager)
+
         val tabLayout = findViewById<TabLayout>(R.id.tab_tablayout)
 
         setSupportActionBar(toolbar)
         setupViewPager(viewPager)
         tabLayout.setupWithViewPager(viewPager)
+*/
 
- */
-
+        /*
+        val mainTabLayout = findViewById<TabLayout>(R.id.main_tab_tablayout)
+        setupMainViewPager(viewPager)
+        mainTabLayout.setupWithViewPager(viewPager)
+        */
 
 
     }
 
 
-
      fun setupViewPager(viewpager: ViewPager) {
         val adapter = ViewPagerAdapter(supportFragmentManager)
 
-        adapter.addFragment(TrackRankingList(), "Titres")
-        adapter.addFragment(AlbumRankingList(), "Albums")
+        adapter.addFragment(null, TrackRankingList(), "Titres")
+        adapter.addFragment(null, AlbumRankingList(), "Albums")
+
+        viewpager.adapter = adapter
+    }
+
+    fun setupMainViewPager(viewpager: ViewPager) {
+        val adapter = ViewPagerAdapter(supportFragmentManager)
+
+
+        adapter.addFragment(MainActivity(), null, "classement")
+        adapter.addFragment(null, Search(), "Recherche")
+        adapter.addFragment(null, Favorites(), "Favoris")
 
         viewpager.adapter = adapter
     }
@@ -76,6 +83,7 @@ class MainActivity : AppCompatActivity() {
     class ViewPagerAdapter(supportFragmentManager: FragmentManager) :
         FragmentPagerAdapter(supportFragmentManager) {
 
+        var mainActivityList: ArrayList<MainActivity> = ArrayList()
         var fragmentList: ArrayList<Fragment> = ArrayList()
         var fragmentTitleList: ArrayList<String> = ArrayList()
 
@@ -87,15 +95,18 @@ class MainActivity : AppCompatActivity() {
 
         @Nullable
         override fun getPageTitle(position: Int): CharSequence {
-            return fragmentTitleList.get(position)
+            return fragmentTitleList[position]
         }
 
         override fun getCount(): Int {
             return fragmentList.size
         }
 
-        fun addFragment(fragment: Fragment, title: String) {
-            fragmentList.add(fragment)
+        fun addFragment(mainActivity: MainActivity?, fragment: Fragment?, title: String) {
+            if (mainActivity != null) mainActivityList.add(mainActivity)
+
+            if (fragment != null) fragmentList.add(fragment)
+
             fragmentTitleList.add(title)
         }
     }

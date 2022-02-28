@@ -30,6 +30,9 @@ interface API {
     @retrofit2.http.GET("mostloved.php?format=track")
     fun getTopTrackAsync(): Deferred<TopTrackResponse>
 
+    @retrofit2.http.GET("track-top10.php?")
+    fun getTenLovedTrackByArtistNameAsync(@Query("s") artistName: String): Deferred<TrackResponse>
+
 
     /************ Artist ************/
     @retrofit2.http.GET("search.php")

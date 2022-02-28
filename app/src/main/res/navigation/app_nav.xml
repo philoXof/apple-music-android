@@ -14,7 +14,7 @@
     </fragment>
     <fragment
         android:id="@+id/albumDetails"
-        android:name="com.example.kelyan_bervin.apple_music_android.AlbumDetails"
+        android:name="com.example.kelyan_bervin.apple_music_android.details.album.AlbumDetails"
         android:label="AlbumDetails" >
         <argument
             android:name="idAlbumParam"
@@ -30,7 +30,7 @@
     </fragment>
     <fragment
         android:id="@+id/artistDetails"
-        android:name="com.example.kelyan_bervin.apple_music_android.ArtistDetails"
+        android:name="com.example.kelyan_bervin.apple_music_android.details.artist.ArtistDetails"
         android:label="ArtistDetails" >
         <argument android:name="idTrackParam"
             app:argType="string" />

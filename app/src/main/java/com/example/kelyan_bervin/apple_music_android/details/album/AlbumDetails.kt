@@ -1,13 +1,13 @@
-package com.example.kelyan_bervin.apple_music_android
+package com.example.kelyan_bervin.apple_music_android.details.album
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.kelyan_bervin.apple_music_android.R
 import com.example.kelyan_bervin.apple_music_android.api.NetworkManager
 import com.example.kelyan_bervin.apple_music_android.bdd.DatabaseManager
-import com.example.kelyan_bervin.apple_music_android.data_class.Album
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.album_details.*
 import kotlinx.coroutines.*
@@ -34,14 +34,15 @@ class AlbumDetails() : Fragment() {
         try {
             GlobalScope.launch(Dispatchers.Default) {
 
-                val idAlbum = AlbumDetailsArgs.fromBundle(requireArguments()).idAlbumParam
+                /*val idAlbum = AlbumDetailsArgs.fromBundle(requireArguments()).idAlbumParam
                 println("idAlbum = $idAlbum")
+                 */
+
+                val idAlbum = "2115888"
 
 
-                //val albumResponse = NetworkManager.getAlbumById("2115888")
                 val albumResponse = NetworkManager.getAlbumById(idAlbum)
 
-                //val trackResponse = NetworkManager.getAllTracksByIdAlbum("2115888")
                 val trackResponse = NetworkManager.getAllTracksByIdAlbum(idAlbum)
 
                 withContext(Dispatchers.Main) {

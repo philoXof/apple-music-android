@@ -12,8 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kelyan_bervin.apple_music_android.R
 import com.example.kelyan_bervin.apple_music_android.data_class.Track
 import com.example.kelyan_bervin.apple_music_android.api.NetworkManager
-import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.track_ranking_item_cell.*
 import kotlinx.android.synthetic.main.track_ranking_list.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -32,6 +30,9 @@ class TrackRankingList: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        trackRankingListProgressBar.visibility = View.VISIBLE
+
 
         val topTrackList = arrayListOf<Track>()
 
@@ -62,6 +63,7 @@ class TrackRankingList: Fragment() {
                             requireContext(), DividerItemDecoration.VERTICAL
                         )
                     )
+                    trackRankingListProgressBar.visibility = View.GONE
                 }
             }
         }

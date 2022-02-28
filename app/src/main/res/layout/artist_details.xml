@@ -40,87 +40,94 @@
         android:contentDescription="@string/back_button_content_description" />
 
     <ImageView
-        android:id="@+id/artiste_image"
-        android:layout_width="370dp"
-        android:layout_height="278dp"
+        android:id="@+id/artist_image"
+        android:layout_width="369dp"
+        android:layout_height="238dp"
         android:background="@drawable/ic_etoile"
 
+        android:contentDescription="@string/artiste_image"
         android:scaleType="centerCrop"
         app:layout_constraintLeft_toLeftOf="@id/v_left_guideline"
-        app:layout_constraintRight_toRightOf="@id/v_right_guideline"
 
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/artiste_image" />
+        app:layout_constraintRight_toRightOf="@id/v_right_guideline"
+        app:layout_constraintTop_toTopOf="parent" />
     
     <TextView
+        android:id="@+id/artist_name"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:text="@string/artiste_name"
 
-        app:layout_constraintBottom_toTopOf="@+id/artiste_location"
-        app:layout_constraintLeft_toRightOf="@+id/v_left_guideline"
-        />
+        app:layout_constraintBottom_toTopOf="@+id/artist_country"
+        app:layout_constraintLeft_toRightOf="@+id/v_left_guideline"/>
 
     <TextView
-        android:id="@+id/artiste_location"
+        android:id="@+id/artist_country"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:text="@string/artists_location"
+        android:text="@string/artist_country"
 
         app:layout_constraintLeft_toRightOf="@id/v_left_guideline"
-        app:layout_constraintBottom_toBottomOf="@id/artiste_image"
-        />
+        app:layout_constraintTop_toBottomOf="@id/artist_image"/>
+
 
     <TextView
-        android:id="@+id/artiste_description"
+        android:id="@+id/artist_genre"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:text="@string/artist_genre"
+
+        app:layout_constraintTop_toBottomOf="@id/artist_image"
+        app:layout_constraintStart_toEndOf="@id/artist_country"/>
+
+    <TextView
+        android:id="@+id/artist_description"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:text="@string/artist_description"
 
         app:layout_constraintEnd_toStartOf="@+id/v_right_guideline"
         app:layout_constraintLeft_toRightOf="@id/v_left_guideline"
         app:layout_constraintRight_toLeftOf="@id/v_right_guideline"
         app:layout_constraintStart_toStartOf="@+id/v_left_guideline"
-        app:layout_constraintTop_toBottomOf="@id/artiste_image" />
+        app:layout_constraintTop_toBottomOf="@id/artist_country" />
 
     <TextView
         android:id="@+id/album_title"
         android:layout_width="wrap_content"
-        android:layout_height="40dp"
+        android:layout_height="20dp"
         android:text="@string/albums_artist_profil"
 
-        app:layout_constraintTop_toBottomOf="@+id/artiste_description"
-        app:layout_constraintLeft_toRightOf="@id/v_left_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/artist_description"
+        app:layout_constraintLeft_toRightOf="@id/v_left_guideline"/>
 
-        />
-
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/album_list"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:text="liste des albums  (temporaire)"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
 
         app:layout_constraintTop_toBottomOf="@+id/album_title"
         app:layout_constraintLeft_toRightOf="@id/v_left_guideline"
-        />
+        app:layout_constraintRight_toLeftOf="@id/v_right_guideline"/>
 
     <TextView
         android:id="@+id/song_title"
         android:layout_width="wrap_content"
-        android:layout_height="40dp"
+        android:layout_height="20dp"
         android:text="@string/top_10_tracks"
 
         app:layout_constraintTop_toBottomOf="@+id/album_list"
-        app:layout_constraintLeft_toRightOf="@id/v_left_guideline"
-        />
+        app:layout_constraintLeft_toRightOf="@id/v_left_guideline"/>
 
-    <TextView
-        android:id="@+id/song_list"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:text="top 10 des chansons (temporaire)"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/track_list"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
 
         app:layout_constraintTop_toBottomOf="@+id/song_title"
         app:layout_constraintLeft_toRightOf="@id/v_left_guideline"
-        />
+        app:layout_constraintRight_toLeftOf="@id/v_right_guideline"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

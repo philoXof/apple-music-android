@@ -8,10 +8,10 @@ import kotlinx.android.synthetic.main.fav_album_item_cell.view.*
 
 class FavoritesAlbumItemCell (v: View) : RecyclerView.ViewHolder(v){
 
-    val favAlbumCover: ImageView = v.fav_album_cover
+    val favAlbumCover: ImageView = v.artDetail_album_cover
     val favAlbumTitle: TextView = v.fav_album_title
     val favAlbumArtistName: TextView = v.fav_album_artist_name
-    val constraintFavAlbumItemCell = v.constraint_fav_album_item_cell
+    val constraintFavAlbumItemCell = v.constraint_artDetail_album_item_cell
 
 
 }

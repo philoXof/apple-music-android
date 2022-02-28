@@ -44,6 +44,10 @@ object NetworkManager {
         return retrofit.getTopTrackAsync().await()
     }
 
+    suspend fun getTenLovedTrackByArtistName(artistName: String): TrackResponse{
+        return retrofit.getTenLovedTrackByArtistNameAsync(artistName).await()
+    }
+
     /************ Artist ************/
     suspend fun getArtistByName(artistName: String): ArtistsResponse {
         return retrofit.getArtistByNameAsync(artistName).await()
