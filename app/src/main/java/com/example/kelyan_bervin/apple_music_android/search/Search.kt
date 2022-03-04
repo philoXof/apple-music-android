@@ -13,11 +13,9 @@ import com.example.kelyan_bervin.apple_music_android.api.NetworkManager
 import com.example.kelyan_bervin.apple_music_android.data_class.Album
 import com.example.kelyan_bervin.apple_music_android.data_class.Artist
 import com.example.kelyan_bervin.apple_music_android.ranking.album_ranking.OnItemClickedListener
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.search.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 
 class Search(): Fragment() {
 
@@ -35,6 +33,7 @@ class Search(): Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         search_magnifier_button.setOnClickListener {
 
             if(TextUtils.isEmpty(search_box.text)){
@@ -42,24 +41,20 @@ class Search(): Fragment() {
                 return@setOnClickListener
             }
 
+            s_artist_progressBar.visibility = View.VISIBLE
+            s_album_progressBar.visibility = View.VISIBLE
+
             GlobalScope.launch(Dispatchers.Default) {
 
                 val artistName = search_box.text
 
                 val artistResponse = NetworkManager.getArtistByName(artistName.toString())
-                //TODO : Ne passe pas dans le if
-                if(artistResponse.equals(null)){
-                    Toast.makeText(context, "$artistName not found", Toast.LENGTH_SHORT).show()
-                    return@launch
+                if(artistResponse.artist.isNullOrEmpty()){
+                    Snackbar.make(view, "$artistName not found. Please retry", Snackbar.LENGTH_LONG).show()
+                    s_artist_progressBar.visibility = View.INVISIBLE
+                    s_album_progressBar.visibility = View.INVISIBLE
+                    cancel()
                 }
-
-                val albumResponse = NetworkManager.getAllAlbumByArtistName(artistName.toString())
-                //TODO: Ne passe pas dans le if
-                if(albumResponse.equals(null)){
-                    Toast.makeText(context, "$artistName has not made an album yet", Toast.LENGTH_SHORT).show()
-                    return@launch
-                }
-
 
                 val listArtistsSearched = arrayListOf<Artist>()
                 val listAlbumsSearched = arrayListOf<Album>()
@@ -76,6 +71,14 @@ class Search(): Fragment() {
 
                             }
                         })
+                        s_artist_progressBar.visibility = View.INVISIBLE
+                    }
+
+
+                    val albumResponse = NetworkManager.getAllAlbumByArtistName(artistName.toString())
+                    if(albumResponse.album.isNullOrEmpty()){
+                        Snackbar.make(view, "$artistName has not made an album yet", Snackbar.LENGTH_SHORT).show()
+                        cancel()
                     }
 
 
@@ -89,9 +92,15 @@ class Search(): Fragment() {
 
                             }
                         })
+                        s_album_progressBar.visibility = View.INVISIBLE
                     }
                 }
             }
+        }
+
+
+        cancel_button.setOnClickListener {
+            search_box.text.clear()
         }
 
 
