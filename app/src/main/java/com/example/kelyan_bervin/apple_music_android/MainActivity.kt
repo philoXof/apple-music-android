@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
+import com.example.kelyan_bervin.apple_music_android.details.album.AlbumDetails
+import com.example.kelyan_bervin.apple_music_android.details.artist.ArtistDetails
 import com.example.kelyan_bervin.apple_music_android.favorites.Favorites
 import com.example.kelyan_bervin.apple_music_android.ranking.Ranking
 import com.example.kelyan_bervin.apple_music_android.search.Search
@@ -30,12 +32,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.search)
+        setContentView(R.layout.artist_details)
 
         //code du prof pour utiliser le fragment AlbumDetail()
 
         supportFragmentManager.beginTransaction()
-            .replace(android.R.id.content, Search())
+            .replace(android.R.id.content, ArtistDetails())
             .commitAllowingStateLoss()
 
 

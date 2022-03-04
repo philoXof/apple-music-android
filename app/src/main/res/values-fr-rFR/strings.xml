@@ -8,8 +8,9 @@
     <string name="album">Album</string>
     <string name="favorite">Favoris</string>
     <string name="favorite_page_title"><![CDATA[Mes artistes & albums]]></string>
-    <string name="albums_artist_profil">Albums(%1$s)</string>
-    <string name="top_10_tracks">titres les plus écoutés</string>
+    <string name="albums_artist_profil">Albums (%1$s)</string>
+    <string name="top_10_tracks">Titres les plus écoutés</string>
     <string name="album_tracks">Titres</string>
     <string name="title_string">chansons</string>
+    <string name="votes">votes</string>
 </resources>

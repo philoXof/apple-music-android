@@ -10,5 +10,5 @@ class ArtistDetailTrackCell (v: View) : RecyclerView.ViewHolder(v){
 
     val artDetailTrackNumber: TextView = v.artDetail_track_number
     val artDetailTrackTitle: TextView = v.artDetail_track_title
-    val constraintTrackArtDetailCell: ConstraintLayout = v.constraint_track_artDetail_cell
+    val constraintTrackArtDetailCell: ConstraintLayout = v.constraint_track_albumDetail_cell
 }

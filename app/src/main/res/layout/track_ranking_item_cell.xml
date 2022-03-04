@@ -8,7 +8,7 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraint_track_artDetail_cell"
+        android:id="@+id/constraint_track_albumDetail_cell"
         android:layout_width="match_parent"
         android:layout_height="90dp">
 
@@ -19,8 +19,8 @@
             android:layout_height="70dp"
             android:layout_margin="20dp"
 
-            app:layout_constraintTop_toTopOf="@id/constraint_track_artDetail_cell"
-            app:layout_constraintLeft_toLeftOf="@id/constraint_track_artDetail_cell"/>
+            app:layout_constraintTop_toTopOf="@id/constraint_track_albumDetail_cell"
+            app:layout_constraintLeft_toLeftOf="@id/constraint_track_albumDetail_cell"/>
 
 
 
@@ -30,7 +30,7 @@
             android:layout_height="70dp"
             android:layout_margin="20dp"
 
-            app:layout_constraintTop_toTopOf="@id/constraint_track_artDetail_cell"
+            app:layout_constraintTop_toTopOf="@id/constraint_track_albumDetail_cell"
             app:layout_constraintLeft_toRightOf="@id/artDetail_track_number"/>
 
 
@@ -40,7 +40,7 @@
             android:layout_height="35dp"
             android:layout_margin="10dp"
 
-            app:layout_constraintTop_toTopOf="@id/constraint_track_artDetail_cell"
+            app:layout_constraintTop_toTopOf="@id/constraint_track_albumDetail_cell"
             app:layout_constraintLeft_toRightOf="@id/track_ranking_cover"/>
 
         <TextView

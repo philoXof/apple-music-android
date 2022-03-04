@@ -83,6 +83,7 @@
             android:id="@+id/nb_title"
             android:layout_width="wrap_content"
             android:layout_height="20dp"
+            android:layout_margin="5dp"
 
             app:layout_constraintTop_toBottomOf="@id/album_title"
             app:layout_constraintLeft_toRightOf="@id/album_cover"/>
@@ -91,7 +92,6 @@
             android:id="@+id/title_string"
             android:layout_width="wrap_content"
             android:layout_height="20dp"
-            android:layout_margin="20dp"
 
             app:layout_constraintTop_toBottomOf="@id/album_title"
             app:layout_constraintLeft_toRightOf="@id/nb_title"
@@ -127,8 +127,8 @@
         <ImageView
             android:id="@+id/star_image"
             android:src="@drawable/ic_etoile"
-            android:layout_width="15dp"
-            android:layout_height="15dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_margin="20dp"
 
             app:layout_constraintTop_toTopOf="@id/stars_and_votes"
@@ -137,8 +137,8 @@
         <TextView
             android:id="@+id/nb_stars"
             android:layout_width="wrap_content"
-            android:layout_height="25dp"
-            android:layout_margin="15dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="20dp"
 
             app:layout_constraintTop_toTopOf="@id/stars_and_votes"
             app:layout_constraintLeft_toRightOf="@id/star_image"/>
@@ -146,11 +146,22 @@
         <TextView
             android:id="@+id/nb_votes"
             android:layout_width="wrap_content"
-            android:layout_height="25dp"
-            android:layout_margin="15dp"
+            android:layout_height="20dp"
+            android:layout_margin="20dp"
 
             app:layout_constraintTop_toTopOf="@id/stars_and_votes"
-            app:layout_constraintLeft_toRightOf="@id/nb_stars"/>
+            app:layout_constraintLeft_toRightOf="@id/nb_stars" />
+
+        <TextView
+            android:id="@+id/votes"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginTop="20dp"
+
+            app:layout_constraintTop_toTopOf="@id/stars_and_votes"
+            app:layout_constraintLeft_toRightOf="@id/nb_votes"
+
+            android:text="@string/votes"/>
 
 
 
@@ -181,7 +192,7 @@
         
         android:text="@string/album_tracks"/>
 
-    <ListView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/title_list"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

@@ -16,7 +16,6 @@ import com.example.kelyan_bervin.apple_music_android.ranking.album_ranking.OnIte
 import com.example.kelyan_bervin.apple_music_android.ranking.track_ranking.OnTrackClickedListener
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.artist_details.*
-import kotlinx.android.synthetic.main.track_ranking_list.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
