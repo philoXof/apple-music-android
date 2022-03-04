@@ -35,5 +35,30 @@
         <argument
             android:name="idTrackParam"
             app:argType="string" />
+        <argument
+            android:name="idArtistParam"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/favorites"
+        android:name="com.example.kelyan_bervin.apple_music_android.favorites.Favorites"
+        android:label="Favorites" >
+        <action
+            android:id="@+id/action_favorites_to_albumDetails"
+            app:destination="@id/albumDetails" />
+        <action
+            android:id="@+id/action_favorites_to_artistDetails"
+            app:destination="@id/artistDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/search"
+        android:name="com.example.kelyan_bervin.apple_music_android.search.Search"
+        android:label="Search" >
+        <action
+            android:id="@+id/action_search_to_albumDetails"
+            app:destination="@id/albumDetails" />
+        <action
+            android:id="@+id/action_search_to_artistDetails"
+            app:destination="@id/artistDetails" />
     </fragment>
 </navigation>

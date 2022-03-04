@@ -52,13 +52,12 @@ class Favorites(): Fragment() {
                     adapter = FavoritesAlbumListAdapter(favAlbumList, object: OnFavAlbumClickedListener{
                         override fun onItemClicked(idAlbum: String) {
                             Toast.makeText(context, idAlbum, Toast.LENGTH_SHORT).show()
-                            /*
+
                             findNavController().navigate(
                                 FavoritesDirections.actionFavoritesToAlbumDetails(
                                     idAlbumParam = idAlbum
                                 )
                             )
-                             */
                         }
 
                     })
@@ -73,14 +72,14 @@ class Favorites(): Fragment() {
                     adapter = FavoritesArtistListAdapter(favArtistList, object: OnFavArtistClickedListener{
                         override fun onItemClicked(idArtist: String) {
                             Toast.makeText(context, idArtist, Toast.LENGTH_SHORT).show()
-                            /*
+
                             findNavController().navigate(
                                 FavoritesDirections.actionFavoritesToArtistDetails(
                                     idArtistParam = idArtist,
-                                    idTrackParam = null.toString()
+                                    idTrackParam = ""
                                 )
                             )
-                            */
+
                         }
                     })
                     fav_album_progressBar.visibility = View.GONE

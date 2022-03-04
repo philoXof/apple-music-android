@@ -59,47 +59,11 @@ class AlbumRankingList : Fragment(){
                             override fun onItemClicked(idAlbum: String) {
                                 Toast.makeText(context, idAlbum, Toast.LENGTH_SHORT).show()
 
-                                /*val navController = Navigation.findNavController(
-                                    activity!!,
-                                    R.id.main_list
-                                )
-
-                                navController.navigate(
-                                    AlbumRankingListDirections.actionAlbumRankingListToAlbumDetails(
-                                        idAlbumParam = idAlbum
-                                    )
-                                )*/
-
-
-                                //NavHostFragment.findNavController(AlbumDetails())
-
-                                /*lifecycleScope.launchWhenResumed {
-                                    findNavController().navigate(R.id.action_albumRankingList_to_albumDetails)
-                                }*/
-
-
-                                /*val navHostFragment = findNavController() as NavHostFragment
-                                val navController = navHostFragment.navController
-                                 */
-
-
-                                //val intent: Intent = Intent()
                                 findNavController().navigate(
-                                    //intent.putExtra("idAlbum", idAlbum)
                                     AlbumRankingListDirections.actionAlbumRankingListToAlbumDetails(
                                         idAlbumParam = idAlbum
                                     )
                                 )
-
-                                /*val arguments = Bundle()
-                                arguments.putString("idAlbumParam", idAlbum)
-                                val fragment = AlbumDetails()
-                                fragment.arguments = arguments
-
-                                 */
-
-                                //val bundle = bundleOf(Pair("idAlbum", String))
-                                //view.findNavController().navigate(R.id.albumDetails)
                             }
 
                         })

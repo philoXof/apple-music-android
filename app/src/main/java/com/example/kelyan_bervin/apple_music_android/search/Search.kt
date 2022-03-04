@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kelyan_bervin.apple_music_android.R
 import com.example.kelyan_bervin.apple_music_android.api.NetworkManager
@@ -69,6 +70,13 @@ class Search(): Fragment() {
                             override fun onArtistClickedListener(idArtist: String) {
                                 Toast.makeText(context, idArtist, Toast.LENGTH_SHORT).show()
 
+                                findNavController().navigate(
+                                    SearchDirections.actionSearchToArtistDetails(
+                                        idArtistParam = idArtist,
+                                        idTrackParam = ""
+                                    )
+                                )
+
                             }
                         })
                         s_artist_progressBar.visibility = View.INVISIBLE
@@ -89,6 +97,12 @@ class Search(): Fragment() {
                         adapter = SearchAlbumListAdapter(listAlbumsSearched, object: OnItemClickedListener{
                             override fun onItemClicked(idAlbum: String) {
                                 Toast.makeText(context, idAlbum, Toast.LENGTH_SHORT).show()
+
+                                findNavController().navigate(
+                                    SearchDirections.actionSearchToAlbumDetails(
+                                        idAlbumParam = idAlbum
+                                    )
+                                )
 
                             }
                         })
