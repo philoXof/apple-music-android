@@ -16,38 +16,34 @@
         android:background="#0F9D58"
         android:theme="@style/Theme.Apple_music_android.AppBarOverlay">
 
-
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:popupTheme="@style/Theme.Apple_music_android.PopupOverlay" />
 
-
     </com.google.android.material.appbar.AppBarLayout>
-
 
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/tab_viewpager"
         android:name="androidx.navigation.fragment.NavHostFragment"
 
-
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="5dp"
+
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/main_tab_tablayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         app:layout_anchor="@+id/tab_viewpager"
         app:layout_anchorGravity="bottom|center"
         app:tabIndicatorColor="#FFF"
-        app:tabIndicatorHeight="3dp"
-        app:tabMode="fixed" />
-
+        app:tabMode="fixed"/>
 
 
 

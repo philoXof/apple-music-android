@@ -7,124 +7,62 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import androidx.viewpager2.widget.ViewPager2
 import com.example.kelyan_bervin.apple_music_android.details.album.AlbumDetails
 import com.example.kelyan_bervin.apple_music_android.details.artist.ArtistDetails
 import com.example.kelyan_bervin.apple_music_android.favorites.Favorites
+import com.example.kelyan_bervin.apple_music_android.ranking.MyAdapter
 import com.example.kelyan_bervin.apple_music_android.ranking.Ranking
+import com.example.kelyan_bervin.apple_music_android.ranking.album_ranking.AlbumRankingList
+import com.example.kelyan_bervin.apple_music_android.ranking.track_ranking.TrackRankingList
 import com.example.kelyan_bervin.apple_music_android.search.Search
 import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 
-//TODO :
-// * Mettre toute la logique des onglets "Albums" et "Titres" dans les fichiers Ranking et ranking.xml : ko
-// **
-// * Trouver le moyen de passer la classe Ranking en Fragment
-//                          (lorque l'on passe Ranking en type Fragment certaines fonctions ne sont plus disponible)
-// **
-// * Mettre en place la logique des onglets "Classement", "Recherche" et "Favoris" dans le main
-
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.favorites)
+        setContentView(R.layout.activity_main)
 
-        //code du prof pour utiliser le fragment AlbumDetail()
-
+        //code pour tester les écrans individuellement
+/*
         supportFragmentManager.beginTransaction()
             .replace(android.R.id.content, Favorites())
             .commitAllowingStateLoss()
+*/
+
+        val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+
+        val viewPager = findViewById<ViewPager>(R.id.tab_viewpager)
+        setupMainViewPager(viewPager)
+
+        val tabLayout = findViewById<TabLayout>(R.id.main_tab_tablayout)
+        tabLayout.setupWithViewPager(viewPager)
 
 
-        /*GlobalScope.launch(Dispatchers.Default) {
-            withContext(Dispatchers.Main) {
-                val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
-                val viewPager = findViewById<ViewPager>(R.id.tab_viewpager)
-
-                //val tabLayout = findViewById<TabLayout>(R.id.tab_tablayout)
-
-                setSupportActionBar(toolbar)
-                //setupViewPager(viewPager)
-                //tabLayout.setupWithViewPager(viewPager)
-
-
-
-                val mainTabLayout = findViewById<TabLayout>(R.id.main_tab_tablayout)
-                setupMainViewPager(viewPager)
-                mainTabLayout.setupWithViewPager(viewPager)
-            }
-
-        }*/
-
-
-
-        /*runOnUiThread {
-            val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
-            val viewPager = findViewById<ViewPager>(R.id.tab_viewpager)
-
-            //val tabLayout = findViewById<TabLayout>(R.id.tab_tablayout)
-
-            setSupportActionBar(toolbar)
-            //setupViewPager(viewPager)
-            //tabLayout.setupWithViewPager(viewPager)
-
-
-
-            val mainTabLayout = findViewById<TabLayout>(R.id.main_tab_tablayout)
-            setupMainViewPager(viewPager)
-            mainTabLayout.setupWithViewPager(viewPager)
-        }*/
-
-        /*Thread {
-            // performing some dummy time taking operation
-
-            // try to touch View of UI thread
-            this@MainActivity.runOnUiThread {
-                val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
-                val viewPager = findViewById<ViewPager>(R.id.tab_viewpager)
-
-                //val tabLayout = findViewById<TabLayout>(R.id.tab_tablayout)
-
-                setSupportActionBar(toolbar)
-                //setupViewPager(viewPager)
-                //tabLayout.setupWithViewPager(viewPager)
-
-
-                val mainTabLayout = findViewById<TabLayout>(R.id.main_tab_tablayout)
-                setupMainViewPager(viewPager)
-                mainTabLayout.setupWithViewPager(viewPager)
-            }
-        }.start()*/
 
 
     }
 
 
-     /*fun setupViewPager(viewpager: ViewPager) {
-        val adapter = ViewPagerAdapter(supportFragmentManager)
-
-        adapter.addFragment(TrackRankingList(), "Titres")
-        adapter.addFragment(AlbumRankingList(), "Albums")
-
-        viewpager.adapter = adapter
-    }*/
-
     private fun setupMainViewPager(viewpager: ViewPager) {
         val adapter = ViewPagerAdapter(supportFragmentManager)
 
-
-        adapter.addFragment( Ranking(), "classement")
+        adapter.addFragment(Ranking(), "classement")
         adapter.addFragment(Search(), "Recherche")
         adapter.addFragment(Favorites(), "Favoris")
 
         viewpager.adapter = adapter
     }
-
 
 
     /* TODO: Mettre dans un fichier */
@@ -139,7 +77,6 @@ class MainActivity : AppCompatActivity() {
             return fragmentList[position]
         }
 
-
         @Nullable
         override fun getPageTitle(position: Int): CharSequence {
             return fragmentTitleList[position]
@@ -149,18 +86,10 @@ class MainActivity : AppCompatActivity() {
             return fragmentList.size
         }
 
-        fun addFragment(fragment: Fragment?, title: String) {
-
-            if (fragment != null) fragmentList.add(fragment)
-
+        fun addFragment(fragment: Fragment, title: String) {
+            fragmentList.add(fragment)
             fragmentTitleList.add(title)
         }
     }
-
-
-
-
-
-
 
 }

@@ -43,6 +43,7 @@ class Favorites(): Fragment() {
         try {
             GlobalScope.launch {
 
+
                 val databaseManager = context?.let { DatabaseManager(it) }
 
                 favAlbumList = databaseManager!!.findAllAlbum()
