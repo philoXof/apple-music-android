@@ -45,7 +45,6 @@
         android:layout_height="238dp"
         android:background="@drawable/ic_etoile"
 
-        android:contentDescription="@string/artiste_image"
         android:scaleType="centerCrop"
         app:layout_constraintLeft_toLeftOf="@id/v_left_guideline"
 
@@ -56,7 +55,6 @@
         android:id="@+id/artist_name"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:text="@string/artiste_name"
 
         app:layout_constraintBottom_toTopOf="@+id/artist_country"
         app:layout_constraintLeft_toRightOf="@+id/v_left_guideline"/>
@@ -65,7 +63,6 @@
         android:id="@+id/artist_country"
         android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:text="@string/artist_country"
 
         app:layout_constraintLeft_toRightOf="@id/v_left_guideline"
         app:layout_constraintTop_toBottomOf="@id/artist_image"/>
@@ -76,7 +73,6 @@
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_marginStart="10dp"
-        android:text="@string/artist_genre"
 
         app:layout_constraintTop_toBottomOf="@id/artist_image"
         app:layout_constraintStart_toEndOf="@id/artist_country"/>
@@ -85,7 +81,6 @@
         android:id="@+id/artist_description"
         android:layout_width="0dp"
         android:layout_height="60dp"
-        android:text="@string/artist_description"
 
         app:layout_constraintEnd_toStartOf="@+id/v_right_guideline"
         app:layout_constraintLeft_toRightOf="@id/v_left_guideline"

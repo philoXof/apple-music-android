@@ -1,9 +1,13 @@
 package com.example.kelyan_bervin.apple_music_android.details.album
 
+import android.graphics.Typeface
 import android.os.Bundle
+import android.text.SpannableStringBuilder
+import android.text.style.StyleSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.kelyan_bervin.apple_music_android.R
 import com.example.kelyan_bervin.apple_music_android.api.NetworkManager
@@ -47,7 +51,7 @@ class AlbumDetails() : Fragment() {
 
                 withContext(Dispatchers.Main) {
                     //banner
-                    //Picasso.get().load(response.album[0].strAlbumThumb).into(banner.setBackgroundColor())
+                    //Picasso.get().load(albumResponse.album[0].strAlbumThumb).into(banner.setBackgroundColor())
                     artist_name.text = albumResponse.album[0].strArtist
                     Picasso.get().load(albumResponse.album[0].strAlbumThumb).into(album_cover)
                     album_title.text = albumResponse.album[0].strAlbum
@@ -55,8 +59,6 @@ class AlbumDetails() : Fragment() {
                     nb_stars.text = albumResponse.album[0].intScore
                     nb_votes.text = albumResponse.album[0].intScoreVotes
                     album_description.text = albumResponse.album[0].strDescriptionEN
-                    //title_list.
-
                 }
             }
         } catch (e: IOException){

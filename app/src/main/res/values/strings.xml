@@ -2,22 +2,13 @@
     <string name="app_name">apple_music_android</string>
     <string name="favoris_button_content_description">Favorite</string>
     <string name="back_button_content_description">bouton retour</string>
-    <string name="artiste_image">%1$s image</string>
-    <string name="artiste_name">%1$s</string>
     <string name="search">Search</string>
     <string name="artists">Artists</string>
     <string name="album">Album</string>
     <string name="favorite">Favorite</string>
     <string name="favorite_page_title"><![CDATA[My artists & albums]]></string>
-    <string name="artist_country">%1$s</string>
-    <string name="artist_genre">%1$s</string>
-    <string name="artist_description">%1$s</string>
     <string name="albums_artist_profil">Albums(%1$s)</string>
     <string name="top_10_tracks">most listened titles</string>
-    <string name="album_title">%1$s</string>
-    <string name="number_of_tracks">%1$s</string>
-    <string name="number_of_stars">%1$s</string>
-    <string name="number_of_vote">%1$s votes</string>
-    <string name="album_description">%1$s</string>
     <string name="album_tracks">Tracks</string>
+    <string name="title_string">tracks</string>
 </resources>

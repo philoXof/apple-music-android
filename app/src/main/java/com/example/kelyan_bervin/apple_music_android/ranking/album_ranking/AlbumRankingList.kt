@@ -7,12 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-
+import androidx.fragment.app.findFragment
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.*
 import com.example.kelyan_bervin.apple_music_android.R
 import com.example.kelyan_bervin.apple_music_android.api.NetworkManager
 import com.example.kelyan_bervin.apple_music_android.data_class.Album
-import kotlinx.android.synthetic.main.activity_main.*
+import com.example.kelyan_bervin.apple_music_android.details.album.AlbumDetails
 import kotlinx.android.synthetic.main.album_ranking_list.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -55,14 +59,37 @@ class AlbumRankingList : Fragment(){
                             override fun onItemClicked(idAlbum: String) {
                                 Toast.makeText(context, idAlbum, Toast.LENGTH_SHORT).show()
 
+                                /*val navController = Navigation.findNavController(
+                                    activity!!,
+                                    R.id.main_list
+                                )
 
-                                val intent: Intent = Intent()
-
-                                /*findNavController().navigate(
+                                navController.navigate(
                                     AlbumRankingListDirections.actionAlbumRankingListToAlbumDetails(
                                         idAlbumParam = idAlbum
                                     )
                                 )*/
+
+
+                                //NavHostFragment.findNavController(AlbumDetails())
+
+                                /*lifecycleScope.launchWhenResumed {
+                                    findNavController().navigate(R.id.action_albumRankingList_to_albumDetails)
+                                }*/
+
+
+                                /*val navHostFragment = findNavController() as NavHostFragment
+                                val navController = navHostFragment.navController
+                                 */
+
+
+                                //val intent: Intent = Intent()
+                                findNavController().navigate(
+                                    //intent.putExtra("idAlbum", idAlbum)
+                                    AlbumRankingListDirections.actionAlbumRankingListToAlbumDetails(
+                                        idAlbumParam = idAlbum
+                                    )
+                                )
 
                                 /*val arguments = Bundle()
                                 arguments.putString("idAlbumParam", idAlbum)
@@ -73,7 +100,6 @@ class AlbumRankingList : Fragment(){
 
                                 //val bundle = bundleOf(Pair("idAlbum", String))
                                 //view.findNavController().navigate(R.id.albumDetails)
-
                             }
 
                         })

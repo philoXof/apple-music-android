@@ -64,4 +64,12 @@ dependencies {
     // For control over item selection of both touch and mouse driven selection
     implementation "androidx.recyclerview:recyclerview-selection:1.2.0-alpha01"
 
+    // Feature module Support
+    implementation("androidx.navigation:navigation-dynamic-features-fragment:2.4.1")
+    // Jetpack Compose Integration
+    implementation("androidx.navigation:navigation-compose:2.4.1")
+
+    implementation("androidx.viewpager2:viewpager2:1.0.0")
+    implementation("com.google.android.material:material:1.1.0-beta01")
+
 }

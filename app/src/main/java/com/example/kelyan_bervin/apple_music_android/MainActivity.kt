@@ -1,17 +1,23 @@
 package com.example.kelyan_bervin.apple_music_android
 
 import android.os.Bundle
+import android.service.notification.NotificationListenerService
 import androidx.annotation.Nullable
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.viewpager.widget.ViewPager
+import com.example.kelyan_bervin.apple_music_android.details.album.AlbumDetails
 import com.example.kelyan_bervin.apple_music_android.details.artist.ArtistDetails
 import com.example.kelyan_bervin.apple_music_android.favorites.Favorites
+import com.example.kelyan_bervin.apple_music_android.ranking.Ranking
 import com.example.kelyan_bervin.apple_music_android.ranking.album_ranking.AlbumRankingList
 import com.example.kelyan_bervin.apple_music_android.ranking.track_ranking.TrackRankingList
 import com.example.kelyan_bervin.apple_music_android.search.Search
+import com.google.android.material.tabs.TabLayout
 
 
 //TODO :
@@ -26,13 +32,12 @@ import com.example.kelyan_bervin.apple_music_android.search.Search
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.artist_details)
+
+        setContentView(R.layout.ranking)
 
         //code du prof pour utiliser le fragment AlbumDetail()
-
-
         supportFragmentManager.beginTransaction()
-            .replace(android.R.id.content, ArtistDetails())
+            .replace(android.R.id.content, Ranking())
             .commitAllowingStateLoss()
 
 
@@ -56,7 +61,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
+/*
      fun setupViewPager(viewpager: ViewPager) {
         val adapter = ViewPagerAdapter(supportFragmentManager)
 
@@ -110,6 +115,8 @@ class MainActivity : AppCompatActivity() {
             fragmentTitleList.add(title)
         }
     }
+
+ */
 
 
 

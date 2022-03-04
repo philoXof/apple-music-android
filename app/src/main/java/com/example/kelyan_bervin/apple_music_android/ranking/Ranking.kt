@@ -5,10 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.viewpager.widget.ViewPager
-import com.example.kelyan_bervin.apple_music_android.MainActivity
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import androidx.viewpager2.widget.ViewPager2
 import com.example.kelyan_bervin.apple_music_android.R
+import com.example.kelyan_bervin.apple_music_android.ranking.album_ranking.AlbumRankingList
+import com.example.kelyan_bervin.apple_music_android.ranking.track_ranking.TrackRankingList
 import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 
 class Ranking: Fragment(){
 
@@ -27,62 +30,50 @@ class Ranking: Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val viewPager = view.findViewById<ViewPager>(R.id.r_tab_viewpager)
+        val viewPager = view.findViewById<ViewPager2>(R.id.r_tab_viewpager)
         val tabLayout = view.findViewById<TabLayout>(R.id.r_tablayout)
 
-        //val pViewPager = view.findViewById<ViewPager>(R.id.r_tab_viewpager)
-        //val pagerAdapters = RankingAdapter(supportFragmentManager)
 
+        tabLayout.addTab(tabLayout.newTab())
+        tabLayout.addTab(tabLayout.newTab())
 
-        val mainActivity = MainActivity()
-        mainActivity.setupViewPager(viewPager)
+        val adapter = MyAdapter(this, viewPager, tabLayout.tabCount)
 
-        //setSupportActionBar(toolbar)
-        //setupViewPager(viewPager)
-        tabLayout.setupWithViewPager(viewPager)
+        viewPager.adapter = adapter
+
+        TabLayoutMediator(tabLayout, viewPager){tab, position ->
+            when(position){
+                0 -> {
+                    tab.text = "Titres"
+                }
+                1 -> {
+                    tab.text = "Albums"
+                }
+            }
+
+        }.attach()
+
     }
 
+}
 
 
+class MyAdapter(fm: Fragment, viewPager2: ViewPager2, var totalTabs: Int) : FragmentStateAdapter(fm) {
 
-    /*private fun setupViewPager(viewpager: ViewPager) {
-        val adapter = ViewPagerAdapter()
+    override fun getItemCount(): Int {
+        return totalTabs
+    }
 
-        adapter.addFragment(TrackRankingList(), "Titres")
-        adapter.addFragment(AlbumRankingList(), "Albums")
-
-        viewpager.adapter = adapter
-    }*/
-
-/*
-    class ViewPagerAdapter(supportFragmentManager: FragmentManager) :
-        FragmentPagerAdapter(supportFragmentManager) {
-
-        var fragmentList1: ArrayList<Fragment> = ArrayList()
-        var fragmentTitleList1: ArrayList<String> = ArrayList()
-
-
-        override fun getItem(position: Int): Fragment {
-            return fragmentList1[position]
-        }
-
-
-        @Nullable
-        override fun getPageTitle(position: Int): CharSequence {
-            return fragmentTitleList1.get(position)
-        }
-
-        override fun getCount(): Int {
-            return fragmentList1.size
-        }
-
-
-        fun addFragment(fragment: Fragment, title: String) {
-            fragmentList1.add(fragment)
-            fragmentTitleList1.add(title)
+    override fun createFragment(position: Int): Fragment {
+        when (position) {
+            0 -> {
+                return TrackRankingList()
+            }
+            1 -> {
+                return  AlbumRankingList()
+            }
+            else -> throw Exception("???")
         }
     }
-*/
-
 }
 

@@ -25,13 +25,13 @@ class AlbumRankingListAdapter(private val albumList: List<Album>, private val li
         cell.album_artist.text = albumList[position].strArtist
 
         cell.album_title.setOnClickListener {
-            findNavController(it).navigate(
+            /*findNavController(it).navigate(
                 AlbumRankingListDirections.actionAlbumRankingListToAlbumDetails(
                     idAlbumParam = albumList[position].idAlbum
                 )
-            )
+            )*/
 
-        //listener.onItemClicked(albumList[position].idAlbum)
+        listener.onItemClicked(albumList[position].idAlbum)
         }
 
     }
