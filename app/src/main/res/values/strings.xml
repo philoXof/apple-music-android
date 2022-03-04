@@ -5,7 +5,7 @@
     <string name="search">Search</string>
     <string name="artists">Artists</string>
     <string name="album">Album</string>
-    <string name="favorite">Favorite</string>
+    <string name="favorite">Favorites</string>
     <string name="favorite_page_title"><![CDATA[My artists & albums]]></string>
     <string name="albums_artist_profil">Albums (%1$s)</string>
     <string name="top_10_tracks">Most listened titles</string>

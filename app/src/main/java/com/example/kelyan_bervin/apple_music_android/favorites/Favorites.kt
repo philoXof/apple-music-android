@@ -34,18 +34,18 @@ class Favorites(): Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        fav_artist_progressBar.visibility = View.VISIBLE
+        fav_album_progressBar.visibility = View.VISIBLE
+
         var favAlbumList: List<Album>
         var favArtistList: List<Artist>
 
-
         try {
             GlobalScope.launch {
+
                 val databaseManager = context?.let { DatabaseManager(it) }
 
-
                 favAlbumList = databaseManager!!.findAllAlbum()
-                print(favAlbumList)
-                println("------ ${favAlbumList.size}")
 
                 fav_artist_list.run {
                     layoutManager = LinearLayoutManager(requireContext())
@@ -59,10 +59,10 @@ class Favorites(): Fragment() {
                                 )
                             )
                              */
-
                         }
 
                     })
+                    fav_artist_progressBar.visibility = View.GONE
                 }
 
 
@@ -82,15 +82,15 @@ class Favorites(): Fragment() {
                             )
                             */
                         }
-
                     })
+                    fav_album_progressBar.visibility = View.GONE
                 }
 
 
             }
 
         } catch (e: IOException){
-
+            println(e)
         }
 
 

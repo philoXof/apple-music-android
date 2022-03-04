@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -28,38 +29,50 @@
 
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="@id/v_left_guideline"
-        app:layout_constraintRight_toRightOf="@id/v_right_guideline"
 
         android:text="@string/favorite"
-        android:textSize="40sp"/>
+        android:textSize="40sp"
+        android:textStyle="bold"/>
 
 
     <TextView
         android:id="@+id/layout_subtitle"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
+        android:gravity="left"
 
         app:layout_constraintTop_toBottomOf="@id/layout_title"
         app:layout_constraintLeft_toLeftOf="@id/v_left_guideline"
-        app:layout_constraintRight_toRightOf="@id/v_right_guideline"
 
         android:text="@string/favorite_page_title"
-        android:textSize="20sp"/>
+        android:textSize="17sp"/>
 
 
     <TextView
         android:id="@+id/artist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
 
-        android:layout_marginTop="8dp"
         android:text="@string/artists"
-        android:textSize="30sp"
+        android:textSize="25sp"
+        android:textStyle="bold"
 
         app:layout_constraintTop_toBottomOf="@+id/layout_subtitle"
-        app:layout_constraintLeft_toLeftOf="@id/v_left_guideline"
-        app:layout_constraintRight_toRightOf="@id/v_right_guideline" />
+        app:layout_constraintLeft_toLeftOf="@id/v_left_guideline" />
 
+    <ProgressBar
+        android:id="@+id/fav_artist_progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="@+id/fav_artist_list"
+        app:layout_constraintEnd_toStartOf="@+id/v_right_guideline"
+        app:layout_constraintStart_toStartOf="@+id/v_left_guideline"
+        app:layout_constraintTop_toTopOf="@+id/fav_artist_list" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/fav_artist_list"
@@ -78,10 +91,10 @@
 
         app:layout_constraintTop_toBottomOf="@id/fav_artist_list"
         app:layout_constraintLeft_toLeftOf="@id/v_left_guideline"
-        app:layout_constraintRight_toRightOf="@id/v_right_guideline"
 
         android:text="@string/album"
-        android:textSize="30sp"/>
+        android:textSize="25sp"
+        android:textStyle="bold"/>
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -92,6 +105,20 @@
         app:layout_constraintTop_toBottomOf="@+id/album"
         app:layout_constraintLeft_toLeftOf="@id/v_left_guideline"
         app:layout_constraintRight_toRightOf="@id/v_right_guideline"/>
+
+
+    <ProgressBar
+        android:id="@+id/fav_album_progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toBottomOf="@+id/fav_album_list"
+        app:layout_constraintEnd_toStartOf="@+id/v_right_guideline"
+        app:layout_constraintStart_toStartOf="@+id/v_left_guideline"
+        app:layout_constraintTop_toTopOf="@+id/fav_album_list" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

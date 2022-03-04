@@ -32,12 +32,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.artist_details)
+        setContentView(R.layout.favorites)
 
         //code du prof pour utiliser le fragment AlbumDetail()
 
         supportFragmentManager.beginTransaction()
-            .replace(android.R.id.content, ArtistDetails())
+            .replace(android.R.id.content, Favorites())
             .commitAllowingStateLoss()
 
 
