@@ -30,6 +30,8 @@
             android:layout_height="70dp"
             android:layout_margin="20dp"
 
+            android:src="@drawable/ic_placeholder_album"
+
             app:layout_constraintTop_toTopOf="@id/constraint_track_albumDetail_cell"
             app:layout_constraintLeft_toRightOf="@id/artDetail_track_number"/>
 

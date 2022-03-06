@@ -55,7 +55,12 @@ class ArtistDetails(): Fragment() {
 
                 withContext(Dispatchers.Main) {
 
-                    Picasso.get().load(artistResponse.artist[0].strArtistThumb).into(artist_image)
+                    if (artistResponse.artist[0].strArtistThumb.isNullOrEmpty()){
+                        artist_image.setImageResource(R.drawable.ic_placeholder_album)
+                    } else {
+                        Picasso.get().load(artistResponse.artist[0].strArtistThumb).into(artist_image)
+                    }
+
                     artist_name.text = artistResponse.artist[0].strArtist
                     artist_country.text = artistResponse.artist[0].strCountry
                     artist_genre.text = artistResponse.artist[0].strGenre

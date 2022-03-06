@@ -21,6 +21,13 @@ class AlbumRankingListAdapter(private val albumList: List<Album>, private val li
         val number = position + 1
         cell.number.text = number.toString()
         Picasso.get().load(albumList[position].strAlbumThumb).into(cell.album_cover)
+
+        if (albumList[position].strAlbumThumb.isNullOrEmpty()){
+            cell.album_cover.setImageResource(R.drawable.ic_placeholder_album)
+        } else {
+            Picasso.get().load(albumList[position].strAlbumThumb).into(cell.album_cover)
+        }
+
         cell.album_title.text = albumList[position].strAlbum
         cell.album_artist.text = albumList[position].strArtist
 

@@ -20,7 +20,12 @@ class TrackRankingListAdapter(private val topTrackList: List<Track>, val listene
     override fun onBindViewHolder(cell: TrackRankingItemCell, position: Int) {
         val number = position + 1
         cell.number.text = number.toString()
-        Picasso.get().load(topTrackList[position].strTrackThumb).into(cell.cover)
+
+        if (topTrackList[position].strTrackThumb.isNullOrEmpty()){
+            cell.cover.setImageResource(R.drawable.ic_placeholder_album)
+        } else {
+            Picasso.get().load(topTrackList[position].strTrackThumb).into(cell.cover)
+        }
         cell.track_title.text = topTrackList[position].strTrack
         cell.track_artist.text = topTrackList[position].strArtist
     }

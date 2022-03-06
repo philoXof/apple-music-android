@@ -1,5 +1,6 @@
 package com.example.kelyan_bervin.apple_music_android.details.album
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -95,6 +96,8 @@ class AlbumDetails() : Fragment() {
                 val databaseManager = context?.let { it1 -> DatabaseManager(it1) }
 
                 databaseManager?.addAlbum(albumResponse.album[0])
+
+                like_button.setImageResource(R.drawable.ic_like_on)
             }
         }
 

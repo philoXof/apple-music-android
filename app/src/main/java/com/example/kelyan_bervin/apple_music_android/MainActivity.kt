@@ -7,6 +7,10 @@ import com.example.kelyan_bervin.apple_music_android.favorites.Favorites
 import com.example.kelyan_bervin.apple_music_android.ranking.Ranking
 import com.example.kelyan_bervin.apple_music_android.search.Search
 import com.google.android.material.tabs.TabLayout
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 
 class MainActivity : AppCompatActivity() {
@@ -31,18 +35,25 @@ class MainActivity : AppCompatActivity() {
             //.replace(android.R.id.content, Search()) //Recherche
             //.replace(android.R.id.content, AlbumDetails()) //Detail d'un album
             //.replace(android.R.id.content, ArtistDetails()) //Detail d'un artiste
-            //.commitAllowingStateLoss()
+            .commitAllowingStateLoss()
 */
 
 
-        val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
-        setSupportActionBar(toolbar)
 
-        val viewPager = findViewById<ViewPager>(R.id.tab_viewpager)
-        setupMainViewPager(viewPager)
+        GlobalScope.launch(Dispatchers.Default){
+            withContext(Dispatchers.Main){
+                val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
+                setSupportActionBar(toolbar)
 
-        val tabLayout = findViewById<TabLayout>(R.id.main_tab_tablayout)
-        tabLayout.setupWithViewPager(viewPager)
+                val viewPager = findViewById<ViewPager>(R.id.tab_viewpager)
+                setupMainViewPager(viewPager)
+
+                val tabLayout = findViewById<TabLayout>(R.id.main_tab_tablayout)
+                tabLayout.setupWithViewPager(viewPager)
+            }
+        }
+
+
 
     }
 

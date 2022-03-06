@@ -25,6 +25,10 @@ class MainViewPagerAdapter(supportFragmentManager: FragmentManager) :
         return fragmentList.size
     }
 
+    override fun getItemId(position: Int): Long {
+        return super.getItemId(position)
+    }
+
     fun addFragment(fragment: Fragment, title: String) {
         fragmentList.add(fragment)
         fragmentTitleList.add(title)

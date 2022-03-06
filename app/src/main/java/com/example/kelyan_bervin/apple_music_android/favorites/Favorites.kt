@@ -33,6 +33,7 @@ class Favorites(): Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         fav_artist_progressBar.visibility = View.VISIBLE
         fav_album_progressBar.visibility = View.VISIBLE
 
