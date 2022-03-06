@@ -8,7 +8,7 @@ import com.example.kelyan_bervin.apple_music_android.data_class.Track
 import com.squareup.picasso.Picasso
 
 
-class TrackRankingListAdapter(val topTrackList: List<Track>, val listener: OnTrackClickedListener): RecyclerView.Adapter<TrackRankingItemCell>() {
+class TrackRankingListAdapter(private val topTrackList: List<Track>, val listener: OnTrackClickedListener): RecyclerView.Adapter<TrackRankingItemCell>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TrackRankingItemCell {
         return TrackRankingItemCell(

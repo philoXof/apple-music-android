@@ -8,7 +8,6 @@ import kotlinx.android.synthetic.main.track_ranking_item_cell.view.*
 
 class TrackRankingItemCell (v: View): RecyclerView.ViewHolder(v){
 
-    //val testContent: TextView = v.test
     val number: TextView = v.artDetail_track_number
     val cover: ImageView = v.track_ranking_cover
     val track_title: TextView = v.artDetail_track_title

@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kelyan_bervin.apple_music_android.R
-import com.example.kelyan_bervin.apple_music_android.api.NetworkManager
 import com.example.kelyan_bervin.apple_music_android.bdd.DatabaseManager
 import com.example.kelyan_bervin.apple_music_android.data_class.Album
 import com.example.kelyan_bervin.apple_music_android.data_class.Artist

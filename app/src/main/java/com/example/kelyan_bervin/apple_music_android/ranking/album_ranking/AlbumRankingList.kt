@@ -1,22 +1,16 @@
 package com.example.kelyan_bervin.apple_music_android.ranking.album_ranking
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.findFragment
-import androidx.lifecycle.lifecycleScope
-import androidx.navigation.Navigation
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.*
 import com.example.kelyan_bervin.apple_music_android.R
 import com.example.kelyan_bervin.apple_music_android.api.NetworkManager
 import com.example.kelyan_bervin.apple_music_android.data_class.Album
-import com.example.kelyan_bervin.apple_music_android.details.album.AlbumDetails
 import kotlinx.android.synthetic.main.album_ranking_list.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -76,11 +70,6 @@ class AlbumRankingList : Fragment(){
         } catch (e: IOException){
             println(e)
         }
-
-
-
-
-
 
     }
 
